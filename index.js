@@ -1,5 +1,16 @@
 require("dotenv").config();
 
+const http = require("http");
+
+const PORT = process.env.PORT || 3000;
+
+http.createServer((req, res) => {
+    res.write("Bot is running");
+    res.end();
+}).listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
 const fs = require("node:fs");
 const path = require("node:path");
 
