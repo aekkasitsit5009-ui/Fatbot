@@ -6,38 +6,33 @@ const timers = require("../timerManager");
 
 module.exports = {
 
-data: new SlashCommandBuilder()
+    data: new SlashCommandBuilder()
 
-.setName("stopcountdown")
+        .setName("stopcountdown")
 
-.setDescription("หยุดตัวจับเวลาของห้องนี้"),
+        .setDescription("หยุดตัวจับเวลาของห้องนี้"),
 
-async execute(interaction){
+    async execute(interaction) {
 
-const channelId = interaction.channel.id;
+        const channelId = interaction.channelId;
 
-if(!timers.has(channelId)){
+        if (!timers.has(channelId)) {
 
-return interaction.reply({
+            return interaction.reply({
+                content: "❌ ไม่มีตัวจับเวลาที่กำลังทำงาน",
+                ephemeral: true
+            });
 
-content:"❌ ไม่มีตัวจับเวลาที่กำลังทำงาน",
+        }
 
-ephemeral:true
+        clearInterval(timers.get(channelId));
 
-});
+        timers.delete(channelId);
 
-}
+        await interaction.reply({
+            content: "# ⏹️ หยุดตัวจับเวลาแล้ว"
+        });
 
-clearInterval(timers.get(channelId));
-
-timers.delete(channelId);
-
-await interaction.reply({
-
-content:"# 👁หยุดจับเวลาแล้ว"
-
-});
-
-}
+    }
 
 };
