@@ -1,6 +1,7 @@
 const {
     SlashCommandBuilder,
-    PermissionFlagsBits
+    PermissionFlagsBits,
+    EmbedBuilder
 } = require("discord.js");
 
 module.exports = {
@@ -10,21 +11,23 @@ module.exports = {
         .setName("giverole")
         .setDescription("สร้าง Role และมอบให้ผู้เล่น")
 
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDefaultMemberPermissions(
+            PermissionFlagsBits.Administrator
+        )
 
-       .addStringOption(option =>
-    option
-        .setName("role")
-        .setDescription("ชื่อบทบาท")
-        .setRequired(true)
-)
+        .addStringOption(option =>
+            option
+                .setName("role")
+                .setDescription("ชื่อบทบาท")
+                .setRequired(true)
+        )
 
-.addStringOption(option =>
-    option
-        .setName("players")
-        .setDescription("แท็กหลายคน เช่น @A @B @C")
-        .setRequired(true)
-)
+        .addStringOption(option =>
+            option
+                .setName("players")
+                .setDescription("แท็กหลายคน เช่น @A @B @C")
+                .setRequired(true)
+        )
 
         .addStringOption(option =>
             option
@@ -81,21 +84,26 @@ module.exports = {
                 .setName("mentionable")
                 .setDescription("ทุกคนสามารถแท็กได้")
                 .setRequired(false)
-       
         ),
 
     async execute(interaction) {
 
         const roleName = interaction.options.getString("role");
-        const presetColor = interaction.options.getString("preset_color");
-        const hexColor = interaction.options.getString("hex_color");
-        const hoist = interaction.options.getBoolean("hoist") ?? false;
-        const mentionable = interaction.options.getBoolean("mentionable") ?? false;
         const playersText = interaction.options.getString("players");
 
-        const oldRole = interaction.guild.roles.cache.find(
-            r => r.name.toLowerCase() === roleName.toLowerCase()
-        );
+        const presetColor = interaction.options.getString("preset_color");
+        const hexColor = interaction.options.getString("hex_color");
+
+        const hoist =
+            interaction.options.getBoolean("hoist") ?? false;
+
+        const mentionable =
+            interaction.options.getBoolean("mentionable") ?? false;
+
+        const oldRole =
+            interaction.guild.roles.cache.find(
+                r => r.name.toLowerCase() === roleName.toLowerCase()
+            );
 
         if (oldRole) {
 
@@ -118,32 +126,75 @@ module.exports = {
 
         });
 
-        const ids = [...playersText.matchAll(/<@!?(\d+)>/g)].map(x => x[1]);
+        const ids = [...playersText.matchAll(/<@!?(\d+)>/g)].map(
+            x => x[1]
+        );
 
         let success = 0;
+
+        const receivedMembers = [];
 
         for (const id of ids) {
 
             try {
 
-                const member = await interaction.guild.members.fetch(id);
+                const member =
+                    await interaction.guild.members.fetch(id);
 
                 await member.roles.add(role);
 
                 success++;
 
-            } catch (e) {}
+                receivedMembers.push(`<@${id}>`);
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
 
         }
 
+        const embed = new EmbedBuilder()
+
+            .setColor(role.color)
+
+            .setTitle("✅ สร้างบทบาทสำเร็จ")
+
+            .addFields(
+
+                {
+                    name: "🏷️ บทบาท",
+                    value: `<@&${role.id}>`,
+                    inline: true
+                },
+
+                {
+                    name: "👥 จำนวนสมาชิก",
+                    value: `${success} คน`,
+                    inline: true
+                },
+
+                {
+                    name: "📋 สมาชิกที่ได้รับบทบาท",
+                    value:
+                        receivedMembers.length > 0
+                            ? receivedMembers.join("\n")
+                            : "ไม่มีสมาชิก",
+                    inline: false
+                }
+
+            )
+
+            .setFooter({
+                text: `สร้างโดย ${interaction.user.tag}`
+            })
+
+            .setTimestamp();
+
         await interaction.reply({
 
-            content:
-` สร้างบทบาท **${role.name}**
-
-🎨 สี : ${color}
-
-👥 เพิ่มสมาชิก ${success} คน`
+            embeds: [embed]
 
         });
 
