@@ -1,5 +1,6 @@
 const {
-    SlashCommandBuilder
+    SlashCommandBuilder,
+    EmbedBuilder
 } = require("discord.js");
 
 module.exports = {
@@ -25,12 +26,19 @@ module.exports = {
         const percent =
             Math.floor(Math.random() * 101);
 
-        await interaction.reply({
+        const embed = new EmbedBuilder()
 
-            content:
+            .setColor(0x3498db)
+
+            .setDescription(
 `## ${text}
 
-# ${percent}%`
+# **${percent}%**`
+            );
+
+        await interaction.reply({
+
+            embeds: [embed]
 
         });
 
