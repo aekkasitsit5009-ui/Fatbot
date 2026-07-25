@@ -1,5 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 
+const timers = require("../timerManager");
+
 
 module.exports = {
 
@@ -48,6 +50,8 @@ module.exports = {
 
         let seconds = time;
 
+        const channelId = interaction.channel.id;
+
 
         function formatTime(sec) {
 
@@ -73,6 +77,11 @@ module.exports = {
 
 
         });
+
+        if (timers.has(channelId)) {
+            clearInterval(timers.get(channelId));
+            timers.delete(channelId);
+        }
 
 
         const timer = setInterval(async () => {
@@ -107,6 +116,8 @@ module.exports = {
 
 
                 clearInterval(timer);
+
+                timers.delete(channelId);
 
 
                 await message.edit({
@@ -164,6 +175,8 @@ ${playerText}`
 
 
         }, 1000);
+
+        timers.set(channelId, timer);
 
 
     }
