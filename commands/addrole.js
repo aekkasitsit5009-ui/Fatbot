@@ -1,14 +1,20 @@
 const {
     SlashCommandBuilder,
-    PermissionFlagsBits
+    PermissionFlagsBits,
+    EmbedBuilder
 } = require("discord.js");
 
 module.exports = {
 
     data: new SlashCommandBuilder()
+
         .setName("addrole")
+
         .setDescription("เพิ่มผู้เล่นเข้า Role ที่มีอยู่แล้ว")
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+
+        .setDefaultMemberPermissions(
+            PermissionFlagsBits.Administrator
+        )
 
         .addRoleOption(option =>
             option
@@ -17,56 +23,67 @@ module.exports = {
                 .setRequired(true)
         )
 
-        .addUserOption(option =>
+        .addStringOption(option =>
             option
-                .setName("player1")
-                .setDescription("ผู้เล่นคนที่ 1")
+                .setName("players")
+                .setDescription("แท็กหลายคน เช่น @A @B @C")
                 .setRequired(true)
-        )
-
-        .addUserOption(option =>
-            option
-                .setName("player2")
-                .setDescription("ผู้เล่นคนที่ 2")
-                .setRequired(false)
-        )
-
-        .addUserOption(option =>
-            option
-                .setName("player3")
-                .setDescription("ผู้เล่นคนที่ 3")
-                .setRequired(false)
-        )
-
-        .addUserOption(option =>
-            option
-                .setName("player4")
-                .setDescription("ผู้เล่นคนที่ 4")
-                .setRequired(false)
         ),
 
     async execute(interaction) {
 
         const role = interaction.options.getRole("role");
+        const playersText = interaction.options.getString("players");
 
-        const players = [
-            interaction.options.getUser("player1"),
-            interaction.options.getUser("player2"),
-            interaction.options.getUser("player3"),
-            interaction.options.getUser("player4")
-        ].filter(Boolean);
+        const ids = [...playersText.matchAll(/<@!?(\d+)>/g)].map(x => x[1]);
 
-        for (const user of players) {
+        if (ids.length === 0) {
 
-            const member = await interaction.guild.members.fetch(user.id);
-
-            await member.roles.add(role);
+            return interaction.reply({
+                content: "❌ กรุณาแท็กผู้เล่นอย่างน้อย 1 คน",
+                ephemeral: true
+            });
 
         }
 
-        await interaction.reply(
-            `✅ เพิ่มผู้เล่น ${players.length} คนเข้า Role **${role.name}** เรียบร้อย`
-        );
+        const members = [];
+
+        for (const id of ids) {
+
+            try {
+
+                const member =
+                    await interaction.guild.members.fetch(id);
+
+                await member.roles.add(role);
+
+                members.push(`<@${id}>`);
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+        }
+
+        const embed = new EmbedBuilder()
+
+            .setColor(role.color)
+
+            .setDescription(
+`## ${role}
+
+${members.join(" ")}
+
+ได้รับบทบาทแล้ว ✅`
+            );
+
+        await interaction.reply({
+
+            embeds: [embed]
+
+        });
 
     }
 
