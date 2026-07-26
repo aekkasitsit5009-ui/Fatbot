@@ -48,8 +48,8 @@ module.exports = {
         await interaction.reply({
 
             content:
-`🎲 Random **${role.name}** จาก ${members.length} คน
-**ผู้ได้รับเลือกคือ** **${random}**`
+`-# 🎲 Random **${role.name}** จาก ${members.length} คน
+**ผู้ได้รับเลือกคือ** __${random}__`
 
         });
 
