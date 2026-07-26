@@ -22,9 +22,15 @@ module.exports = {
         const role =
             interaction.options.getRole("role");
 
+        // โหลดสมาชิกทั้งหมดเข้า Cache
+        await interaction.guild.members.fetch();
+
         const members =
-            role.members
-                .filter(member => !member.user.bot)
+            interaction.guild.members.cache
+                .filter(member =>
+                    member.roles.cache.has(role.id) &&
+                    !member.user.bot
+                )
                 .map(member => member);
 
         if (members.length === 0) {
@@ -37,15 +43,13 @@ module.exports = {
         }
 
         const random =
-            members[
-                Math.floor(Math.random() * members.length)
-            ];
+            members[Math.floor(Math.random() * members.length)];
 
         await interaction.reply({
 
             content:
-`🎲 Random ${role.name} จาก ${members.length} คน
-ผู้ได้รับเลือกคือ **${random}**`
+`🎲 Random **${role.name}** จาก ${members.length} คน
+**ผู้ได้รับเลือกคือ** **${random}**`
 
         });
 
