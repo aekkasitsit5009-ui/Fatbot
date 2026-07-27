@@ -10,39 +10,47 @@ const path = require("path");
 const bagFile = path.join(__dirname, "..", "database", "bags.json");
 const itemFile = path.join(__dirname, "..", "database", "items.json");
 
-module.exports = {
+const data = new SlashCommandBuilder()
 
-    data: new SlashCommandBuilder()
+    .setName("additem")
 
-        .setName("additem")
+    .setDescription("เพิ่มไอเทมเข้ากระเป๋าทีม")
 
-        .setDescription("เพิ่มไอเทมเข้ากระเป๋าทีม")
+    .setDefaultMemberPermissions(
+        PermissionFlagsBits.Administrator
+    )
 
-        .setDefaultMemberPermissions(
-            PermissionFlagsBits.Administrator
-        )
+    .addRoleOption(option =>
+        option
+            .setName("role")
+            .setDescription("เลือกทีม")
+            .setRequired(true)
+    );
 
-        .addRoleOption(option =>
-            option
-                .setName("role")
-                .setDescription("เลือกทีม")
-                .setRequired(true)
-        )
+// เพิ่ม item1-5
+for (let i = 1; i <= 5; i++) {
 
+    data
         .addStringOption(option =>
             option
-                .setName("item")
-                .setDescription("เลือกไอเทม")
-                .setRequired(true)
+                .setName(`item${i}`)
+                .setDescription(`ไอเทม ${i}`)
+                .setRequired(i === 1)
                 .setAutocomplete(true)
         )
 
         .addIntegerOption(option =>
             option
-                .setName("amount")
-                .setDescription("จำนวน")
-                .setRequired(true)
-        ),
+                .setName(`amount${i}`)
+                .setDescription(`จำนวน ${i}`)
+                .setRequired(i === 1)
+        );
+
+}
+
+module.exports = {
+
+    data,
 
     async autocomplete(interaction) {
 
@@ -90,12 +98,6 @@ module.exports = {
         const role =
             interaction.options.getRole("role");
 
-        const itemId =
-            interaction.options.getString("item");
-
-        const amount =
-            interaction.options.getInteger("amount");
-
         if (!fs.existsSync(bagFile)) {
 
             return interaction.reply({
@@ -130,27 +132,38 @@ module.exports = {
 
         }
 
-        if (!items[itemId]) {
+        const added = [];
 
-            return interaction.reply({
+        for (let i = 1; i <= 5; i++) {
 
-                content: "❌ ไม่พบไอเทม",
+            const itemId =
+                interaction.options.getString(`item${i}`);
 
-                ephemeral: true
+            const amount =
+                interaction.options.getInteger(`amount${i}`);
+
+            if (!itemId || !amount) continue;
+
+            if (!items[itemId]) continue;
+
+            if (!bag.items[itemId]) {
+
+                bag.items[itemId] = 0;
+
+            }
+
+            bag.items[itemId] += amount;
+
+            added.push({
+
+                item: items[itemId],
+
+                amount
 
             });
 
         }
-
-        if (!bag.items[itemId]) {
-
-            bag.items[itemId] = 0;
-
-        }
-
-        bag.items[itemId] += amount;
-
-        fs.writeFileSync(
+                fs.writeFileSync(
 
             bagFile,
 
@@ -158,20 +171,18 @@ module.exports = {
 
         );
 
-        const item = items[itemId];
-
         const embed = new EmbedBuilder()
 
-            .setColor(role.color)
+            .setColor(role.color || 0x2b2d31)
 
             .setDescription(
 `# 📦 เพิ่มไอเทมสำเร็จ
 
 ${role}
 
-${item.emoji} **${item.name}**
-
-จำนวน **${amount}** ชิ้น`
+${added.map(x =>
+`${x.item.emoji} **${x.item.name}** × **${x.amount}**`
+).join("\n")}`
             );
 
         await interaction.reply({
