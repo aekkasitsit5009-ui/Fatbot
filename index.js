@@ -60,6 +60,29 @@ client.once(Events.ClientReady, client => {
 
 client.on(Events.InteractionCreate, async interaction => {
 
+    // ===== Autocomplete =====
+    if (interaction.isAutocomplete()) {
+
+        const command = client.commands.get(interaction.commandName);
+
+        if (!command || !command.autocomplete) return;
+
+        try {
+
+            await command.autocomplete(interaction);
+
+        } catch (error) {
+
+            console.error("========== Autocomplete Error ==========");
+            console.error(error);
+
+        }
+
+        return;
+
+    }
+
+    // ===== Slash Command =====
     if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
@@ -75,7 +98,6 @@ client.on(Events.InteractionCreate, async interaction => {
         console.error(`❌ Error ในคำสั่ง /${interaction.commandName}`);
         console.error(error);
 
-        // Interaction หมดอายุแล้ว
         if (error.code === 10062) return;
 
         try {
@@ -98,7 +120,6 @@ client.on(Events.InteractionCreate, async interaction => {
 
         } catch (err) {
 
-            // ไม่ต้อง Log ถ้าตอบ Interaction ไปแล้ว
             if (err.code !== 40060) {
 
                 console.error("❌ Reply Error");

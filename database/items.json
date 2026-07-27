@@ -1,0 +1,1101 @@
+{
+  "sandwich": {
+    "name": "แซนด์วิช",
+    "emoji": "🥪",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "ham_cheese_sandwich": {
+    "name": "แฮมชีสแซนด์วิช",
+    "emoji": "🥪",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "burger": {
+    "name": "เบอร์เกอร์",
+    "emoji": "🍔",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "hotdog": {
+    "name": "ฮอตดอก",
+    "emoji": "🌭",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "pizza_slice": {
+    "name": "พิซซ่าชิ้น",
+    "emoji": "🍕",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "lunch_box": {
+    "name": "ข้าวกล่อง",
+    "emoji": "🍱",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "fried_rice": {
+    "name": "ข้าวผัด",
+    "emoji": "🍛",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "curry_rice": {
+    "name": "ข้าวแกง",
+    "emoji": "🍛",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "chicken_rice": {
+    "name": "ข้าวหน้าไก่",
+    "emoji": "🍗",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "beef_rice": {
+    "name": "ข้าวหน้าเนื้อ",
+    "emoji": "🥩",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "macaroni": {
+    "name": "มักกะโรนี",
+    "emoji": "🍝",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "spaghetti": {
+    "name": "สปาเกตตี",
+    "emoji": "🍝",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "salad": {
+    "name": "สลัด",
+    "emoji": "🥗",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "fruit_cup": {
+    "name": "ผลไม้หั่น",
+    "emoji": "🍎",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "fried_chicken": {
+    "name": "ไก่ทอด",
+    "emoji": "🍗",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "nuggets": {
+    "name": "นักเก็ต",
+    "emoji": "🍗",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "fries": {
+    "name": "เฟรนช์ฟรายส์",
+    "emoji": "🍟",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "sausage": {
+    "name": "ไส้กรอก",
+    "emoji": "🌭",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "gyoza": {
+    "name": "เกี๊ยวซ่า",
+    "emoji": "🥟",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 2,
+    "stack": 10
+  },
+  "cup_noodles": {
+    "name": "บะหมี่ถ้วย",
+    "emoji": "🍜",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 1,
+    "stack": 10
+  },
+  "cup_porridge": {
+    "name": "โจ๊กถ้วย",
+    "emoji": "🥣",
+    "category": "อาหารพร้อมรับประทาน",
+    "slot": 1,
+    "stack": 10
+  },
+
+  "white_bread": {
+    "name": "ขนมปังขาว",
+    "emoji": "🍞",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "wholewheat_bread": {
+    "name": "ขนมปังโฮลวีต",
+    "emoji": "🍞",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "croissant": {
+    "name": "ครัวซองต์",
+    "emoji": "🥐",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "donut": {
+    "name": "โดนัท",
+    "emoji": "🍩",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "muffin": {
+    "name": "มัฟฟิน",
+    "emoji": "🧁",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "cake": {
+    "name": "เค้ก",
+    "emoji": "🍰",
+    "category": "เบเกอรี่",
+    "slot": 2,
+    "stack": 10
+  },
+  "cookie": {
+    "name": "คุกกี้",
+    "emoji": "🍪",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "pie": {
+    "name": "พาย",
+    "emoji": "🥧",
+    "category": "เบเกอรี่",
+    "slot": 2,
+    "stack": 10
+  },
+  "brownie": {
+    "name": "บราวนี่",
+    "emoji": "🍫",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+  "egg_tart": {
+    "name": "ทาร์ตไข่",
+    "emoji": "🥧",
+    "category": "เบเกอรี่",
+    "slot": 1,
+    "stack": 10
+  },
+
+  "water": {
+    "name": "น้ำเปล่า",
+    "emoji": "🥤",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "mineral_water": {
+    "name": "น้ำแร่",
+    "emoji": "💧",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "soft_drink": {
+    "name": "น้ำอัดลม",
+    "emoji": "🥤",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "fruit_juice": {
+    "name": "น้ำผลไม้",
+    "emoji": "🧃",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "green_tea": {
+    "name": "ชาเขียว",
+    "emoji": "🍵",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "lemon_tea": {
+    "name": "ชามะนาว",
+    "emoji": "🍋",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "black_tea": {
+    "name": "ชาดำ",
+    "emoji": "🫖",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "canned_coffee": {
+    "name": "กาแฟกระป๋อง",
+    "emoji": "☕",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "coffee": {
+    "name": "กาแฟสด",
+    "emoji": "☕",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "energy_drink": {
+    "name": "เครื่องดื่มชูกำลัง",
+    "emoji": "⚡",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "milk": {
+    "name": "นมสด",
+    "emoji": "🥛",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "chocolate_milk": {
+    "name": "นมช็อกโกแลต",
+    "emoji": "🥛",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "soy_milk": {
+    "name": "นมถั่วเหลือง",
+    "emoji": "🥛",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "drinkable_yogurt": {
+    "name": "โยเกิร์ตพร้อมดื่ม",
+    "emoji": "🥛",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+  "electrolyte_drink": {
+    "name": "น้ำเกลือแร่",
+    "emoji": "💧",
+    "category": "เครื่องดื่ม",
+    "slot": 1,
+    "stack": 10
+  },
+    "potato_chips": {
+    "name": "มันฝรั่งทอด",
+    "emoji": "🥔",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "corn_snack": {
+    "name": "ข้าวโพดอบกรอบ",
+    "emoji": "🌽",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "popcorn": {
+    "name": "ป๊อปคอร์น",
+    "emoji": "🍿",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "peanuts": {
+    "name": "ถั่วลิสง",
+    "emoji": "🥜",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "cashew": {
+    "name": "เม็ดมะม่วงหิมพานต์",
+    "emoji": "🥜",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "almond": {
+    "name": "อัลมอนด์",
+    "emoji": "🥜",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "chocolate": {
+    "name": "ช็อกโกแลต",
+    "emoji": "🍫",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "wafer": {
+    "name": "เวเฟอร์",
+    "emoji": "🍪",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "candy": {
+    "name": "ลูกอม",
+    "emoji": "🍬",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 20
+  },
+  "gum": {
+    "name": "หมากฝรั่ง",
+    "emoji": "🫧",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 20
+  },
+  "jelly": {
+    "name": "เยลลี่",
+    "emoji": "🍮",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "biscuit": {
+    "name": "บิสกิต",
+    "emoji": "🍪",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "cracker": {
+    "name": "แครกเกอร์",
+    "emoji": "🥠",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+  "crispy_snack": {
+    "name": "ขนมอบกรอบ",
+    "emoji": "🍘",
+    "category": "ขนม",
+    "slot": 1,
+    "stack": 10
+  },
+
+  "rice": {
+    "name": "ข้าวสาร",
+    "emoji": "🍚",
+    "category": "ของชำ",
+    "slot": 3,
+    "stack": 5
+  },
+  "sugar": {
+    "name": "น้ำตาล",
+    "emoji": "🧂",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "salt": {
+    "name": "เกลือ",
+    "emoji": "🧂",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "pepper": {
+    "name": "พริกไทย",
+    "emoji": "🧂",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "soy_sauce": {
+    "name": "ซอสถั่วเหลือง",
+    "emoji": "🍶",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "ketchup": {
+    "name": "ซอสมะเขือเทศ",
+    "emoji": "🍅",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "mayonnaise": {
+    "name": "มายองเนส",
+    "emoji": "🥫",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "cooking_oil": {
+    "name": "น้ำมันพืช",
+    "emoji": "🫗",
+    "category": "ของชำ",
+    "slot": 2,
+    "stack": 5
+  },
+  "canned_fish": {
+    "name": "ปลากระป๋อง",
+    "emoji": "🥫",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "canned_beans": {
+    "name": "ถั่วกระป๋อง",
+    "emoji": "🥫",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "canned_soup": {
+    "name": "ซุปกระป๋อง",
+    "emoji": "🥫",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 10
+  },
+  "instant_noodles": {
+    "name": "บะหมี่กึ่งสำเร็จรูป",
+    "emoji": "🍜",
+    "category": "ของชำ",
+    "slot": 1,
+    "stack": 20
+  },
+  "cereal": {
+    "name": "ซีเรียล",
+    "emoji": "🥣",
+    "category": "ของชำ",
+    "slot": 2,
+    "stack": 10
+  },
+
+  "egg": {
+    "name": "ไข่ไก่",
+    "emoji": "🥚",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 20
+  },
+  "butter": {
+    "name": "เนย",
+    "emoji": "🧈",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+  "cheese": {
+    "name": "ชีส",
+    "emoji": "🧀",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+  "ham": {
+    "name": "แฮม",
+    "emoji": "🍖",
+    "category": "ของสด",
+    "slot": 2,
+    "stack": 10
+  },
+  "bacon": {
+    "name": "เบคอน",
+    "emoji": "🥓",
+    "category": "ของสด",
+    "slot": 2,
+    "stack": 10
+  },
+  "fresh_sausage": {
+    "name": "ไส้กรอก",
+    "emoji": "🌭",
+    "category": "ของสด",
+    "slot": 2,
+    "stack": 10
+  },
+  "lettuce": {
+    "name": "ผักสลัด",
+    "emoji": "🥬",
+    "category": "ของสด",
+    "slot": 2,
+    "stack": 10
+  },
+  "tomato": {
+    "name": "มะเขือเทศ",
+    "emoji": "🍅",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+  "cucumber": {
+    "name": "แตงกวา",
+    "emoji": "🥒",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+  "apple": {
+    "name": "แอปเปิล",
+    "emoji": "🍎",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+  "banana": {
+    "name": "กล้วย",
+    "emoji": "🍌",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+  "orange": {
+    "name": "ส้ม",
+    "emoji": "🍊",
+    "category": "ของสด",
+    "slot": 1,
+    "stack": 10
+  },
+    "bandage": {
+    "name": "ผ้าพันแผล",
+    "emoji": "🩹",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 20
+  },
+  "plaster": {
+    "name": "พลาสเตอร์",
+    "emoji": "🩹",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 50
+  },
+  "cotton": {
+    "name": "สำลี",
+    "emoji": "☁️",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 20
+  },
+  "alcohol": {
+    "name": "แอลกอฮอล์",
+    "emoji": "🧴",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 2,
+    "stack": 10
+  },
+  "disinfectant": {
+    "name": "น้ำยาฆ่าเชื้อ",
+    "emoji": "🧪",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 2,
+    "stack": 10
+  },
+  "painkiller": {
+    "name": "ยาแก้ปวด",
+    "emoji": "💊",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 20
+  },
+  "fever_medicine": {
+    "name": "ยาลดไข้",
+    "emoji": "💊",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 20
+  },
+  "allergy_medicine": {
+    "name": "ยาแก้แพ้",
+    "emoji": "💊",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 20
+  },
+  "cough_medicine": {
+    "name": "ยาแก้ไอ",
+    "emoji": "🍯",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 10
+  },
+  "lozenge": {
+    "name": "ยาอม",
+    "emoji": "🍬",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 20
+  },
+  "vitamin_c": {
+    "name": "วิตามินซี",
+    "emoji": "🍊",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 1,
+    "stack": 30
+  },
+  "medkit": {
+    "name": "ชุดปฐมพยาบาล",
+    "emoji": "⛑️",
+    "category": "ยาและเวชภัณฑ์",
+    "slot": 4,
+    "stack": 2
+  },
+
+  "toothbrush": {
+    "name": "แปรงสีฟัน",
+    "emoji": "🪥",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 5
+  },
+  "toothpaste": {
+    "name": "ยาสีฟัน",
+    "emoji": "🦷",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 5
+  },
+  "floss": {
+    "name": "ไหมขัดฟัน",
+    "emoji": "🧵",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 5
+  },
+  "soap": {
+    "name": "สบู่",
+    "emoji": "🧼",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 10
+  },
+  "shampoo": {
+    "name": "แชมพู",
+    "emoji": "🧴",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 2,
+    "stack": 5
+  },
+  "conditioner": {
+    "name": "ครีมนวด",
+    "emoji": "🧴",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 2,
+    "stack": 5
+  },
+  "razor": {
+    "name": "มีดโกน",
+    "emoji": "🪒",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 5
+  },
+  "shaving_foam": {
+    "name": "โฟมโกนหนวด",
+    "emoji": "🧴",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 2,
+    "stack": 5
+  },
+  "toilet_paper": {
+    "name": "กระดาษชำระ",
+    "emoji": "🧻",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 2,
+    "stack": 10
+  },
+  "tissue": {
+    "name": "ทิชชู่",
+    "emoji": "🤧",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 10
+  },
+  "wet_tissue": {
+    "name": "ทิชชู่เปียก",
+    "emoji": "🧻",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 10
+  },
+  "sanitary_pad": {
+    "name": "ผ้าอนามัย",
+    "emoji": "🩸",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 2,
+    "stack": 10
+  },
+  "handkerchief": {
+    "name": "ผ้าเช็ดหน้า",
+    "emoji": "🧻",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 5
+  },
+  "comb": {
+    "name": "หวี",
+    "emoji": "🪮",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 5
+  },
+  "hair_tie": {
+    "name": "ยางรัดผม",
+    "emoji": "🎀",
+    "category": "ของใช้ส่วนตัว",
+    "slot": 1,
+    "stack": 20
+  },
+
+  "dish_soap": {
+    "name": "น้ำยาล้างจาน",
+    "emoji": "🧴",
+    "category": "ของใช้ในบ้าน",
+    "slot": 2,
+    "stack": 5
+  },
+  "detergent": {
+    "name": "ผงซักฟอก",
+    "emoji": "🧺",
+    "category": "ของใช้ในบ้าน",
+    "slot": 2,
+    "stack": 5
+  },
+  "liquid_detergent": {
+    "name": "น้ำยาซักผ้า",
+    "emoji": "🧴",
+    "category": "ของใช้ในบ้าน",
+    "slot": 2,
+    "stack": 5
+  },
+  "floor_cleaner": {
+    "name": "น้ำยาถูพื้น",
+    "emoji": "🪣",
+    "category": "ของใช้ในบ้าน",
+    "slot": 3,
+    "stack": 5
+  },
+  "cleaner": {
+    "name": "น้ำยาทำความสะอาด",
+    "emoji": "🧴",
+    "category": "ของใช้ในบ้าน",
+    "slot": 2,
+    "stack": 5
+  },
+  "trash_bag": {
+    "name": "ถุงขยะ",
+    "emoji": "🗑️",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 20
+  },
+  "sponge": {
+    "name": "ฟองน้ำ",
+    "emoji": "🧽",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 10
+  },
+  "zip_bag": {
+    "name": "ถุงซิปล็อก",
+    "emoji": "🛍️",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 20
+  },
+  "aa_battery": {
+    "name": "ถ่าน AA",
+    "emoji": "🔋",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 20
+  },
+  "aaa_battery": {
+    "name": "ถ่าน AAA",
+    "emoji": "🔋",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 20
+  },
+  "light_bulb": {
+    "name": "หลอดไฟ",
+    "emoji": "💡",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 10
+  },
+  "duct_tape": {
+    "name": "เทปกาว",
+    "emoji": "🩹",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 10
+  },
+  "rope": {
+    "name": "เชือก",
+    "emoji": "🪢",
+    "category": "ของใช้ในบ้าน",
+    "slot": 2,
+    "stack": 5
+  },
+  "lighter": {
+    "name": "ไฟแช็ก",
+    "emoji": "🔥",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 10
+  },
+  "candle": {
+    "name": "เทียนไข",
+    "emoji": "🕯️",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 10
+  },
+  "matches": {
+    "name": "ไม้ขีดไฟ",
+    "emoji": "📦",
+    "category": "ของใช้ในบ้าน",
+    "slot": 1,
+    "stack": 20
+  },
+    "pen": {
+    "name": "ปากกา",
+    "emoji": "🖊️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 10
+  },
+  "pencil": {
+    "name": "ดินสอ",
+    "emoji": "✏️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 10
+  },
+  "notebook": {
+    "name": "สมุดโน้ต",
+    "emoji": "📒",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 5
+  },
+  "envelope": {
+    "name": "ซองจดหมาย",
+    "emoji": "✉️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 20
+  },
+  "scissors": {
+    "name": "กรรไกร",
+    "emoji": "✂️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 2,
+    "stack": 2
+  },
+  "box_cutter": {
+    "name": "คัตเตอร์",
+    "emoji": "🔪",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 2
+  },
+  "glue": {
+    "name": "กาว",
+    "emoji": "🧴",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 5
+  },
+  "usb_cable": {
+    "name": "สายชาร์จ USB",
+    "emoji": "🔌",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 5
+  },
+  "earphones": {
+    "name": "หูฟัง",
+    "emoji": "🎧",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 2
+  },
+  "power_bank": {
+    "name": "Power Bank",
+    "emoji": "🔋",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 3,
+    "stack": 2
+  },
+  "mask": {
+    "name": "หน้ากากอนามัย",
+    "emoji": "😷",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 20
+  },
+  "rubber_gloves": {
+    "name": "ถุงมือยาง",
+    "emoji": "🧤",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 10
+  },
+  "umbrella": {
+    "name": "ร่ม",
+    "emoji": "☂️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 3,
+    "stack": 2
+  },
+  "cloth_bag": {
+    "name": "กระเป๋าผ้า",
+    "emoji": "🛍️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 2,
+    "stack": 3
+  },
+  "multitool": {
+    "name": "มัลติทูล",
+    "emoji": "🛠️",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 2,
+    "stack": 1
+  },
+  "wrench": {
+    "name": "ประแจ",
+    "emoji": "🔧",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 2,
+    "stack": 1
+  },
+  "screwdriver": {
+    "name": "ไขควง",
+    "emoji": "🪛",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 1
+  },
+  "electric_air_pump": {
+    "name": "ปั๊มลมไฟฟ้า",
+    "emoji": "💨",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 7,
+    "stack": 1
+  },
+  "small_flashlight": {
+    "name": "ไฟฉายหัวเล็ก LED",
+    "emoji": "🔦",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 2,
+    "stack": 2
+  },
+  "rag": {
+    "name": "ผ้าขี้ริ้ว",
+    "emoji": "🧽",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 10
+  },
+  "work_gloves": {
+    "name": "ถุงมือ",
+    "emoji": "🧤",
+    "category": "อุปกรณ์เบ็ดเตล็ด",
+    "slot": 1,
+    "stack": 5
+  },
+
+  "engine_oil": {
+    "name": "น้ำมันเครื่อง",
+    "emoji": "🛢️",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 4,
+    "stack": 2
+  },
+  "windshield_fluid": {
+    "name": "น้ำยาฉีดกระจก",
+    "emoji": "🧴",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 3,
+    "stack": 2
+  },
+  "coolant": {
+    "name": "น้ำหล่อเย็น",
+    "emoji": "🧊",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 3,
+    "stack": 2
+  },
+  "brake_fluid": {
+    "name": "น้ำมันเบรก",
+    "emoji": "🛢️",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 3,
+    "stack": 2
+  },
+  "jumper_cables": {
+    "name": "สายพ่วงแบตเตอรี่",
+    "emoji": "🔌",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 4,
+    "stack": 1
+  },
+  "tire_pump": {
+    "name": "ที่สูบลมยาง",
+    "emoji": "🚲",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 4,
+    "stack": 1
+  },
+  "car_fuse": {
+    "name": "ฟิวส์รถยนต์",
+    "emoji": "⚡",
+    "category": "ของใช้สำหรับรถ",
+    "slot": 1,
+    "stack": 20
+  }
+}
