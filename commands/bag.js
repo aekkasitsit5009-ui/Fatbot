@@ -10,15 +10,20 @@ const {
 const fs = require("fs");
 const path = require("path");
 
+
 const bagFile = path.join(__dirname, "..", "database", "bags.json");
 const itemFile = path.join(__dirname, "..", "database", "items.json");
 
 
 module.exports = {
 
+
     data: new SlashCommandBuilder()
+
         .setName("bag")
+
         .setDescription("ดูกระเป๋าของทีม"),
+
 
 
     async execute(interaction) {
@@ -34,24 +39,34 @@ module.exports = {
         }
 
 
+
         const bags = JSON.parse(
             fs.readFileSync(bagFile, "utf8")
         );
 
 
+
         const items = fs.existsSync(itemFile)
+
             ? JSON.parse(fs.readFileSync(itemFile, "utf8"))
+
             : {};
+
+
 
 
         let bag = null;
 
 
+
         for (const id in bags) {
+
 
             if (interaction.member.roles.cache.has(id)) {
 
+
                 bag = bags[id];
+
                 break;
 
             }
@@ -59,19 +74,30 @@ module.exports = {
         }
 
 
+
+
         if (!bag) {
 
+
             return interaction.reply({
+
                 content: "❌ คุณไม่มีกระเป๋าทีม",
+
                 ephemeral: true
+
             });
+
 
         }
 
 
 
+
+
         let inventory = [];
+
         let usedSlot = 0;
+
 
 
 
@@ -79,10 +105,13 @@ module.exports = {
 
 
             const amount = bag.items[itemId];
+
             const item = items[itemId];
 
 
+
             if (!item) continue;
+
 
 
             const stackCount = Math.ceil(
@@ -90,7 +119,9 @@ module.exports = {
             );
 
 
+
             usedSlot += stackCount * item.slot;
+
 
 
 
@@ -100,17 +131,20 @@ module.exports = {
 
                 value:
 `จำนวน: **${amount}**
-ใช้ช่อง: **${stackCount * item.slot}**`
-
+📦: **${stackCount * item.slot}**`
 
             });
+
 
 
         }
 
 
 
+
+
         if (inventory.length === 0) {
+
 
             inventory.push({
 
@@ -120,15 +154,18 @@ module.exports = {
 
             });
 
+
         }
 
 
 
-        // จำนวนของต่อหน้า
+
+
         const perPage = 6;
 
 
-        const pages = [];
+        let pages = [];
+
 
 
         for (
@@ -137,15 +174,19 @@ module.exports = {
             i += perPage
         ) {
 
+
             pages.push(
                 inventory.slice(i, i + perPage)
             );
+
 
         }
 
 
 
+
         let page = 0;
+
 
 
 
@@ -154,16 +195,21 @@ module.exports = {
 
             const embed = new EmbedBuilder()
 
+
                 .setColor(0x5865F2)
+
 
                 .setTitle(`🎒 ${bag.name}`)
 
+
                 .setDescription(
 `📦 ช่องเก็บของ
+
 **${usedSlot}/${bag.maxSlot}**
 
 หน้า **${page + 1}/${pages.length}**`
                 );
+
 
 
             embed.addFields(
@@ -171,9 +217,13 @@ module.exports = {
             );
 
 
+
             return embed;
 
+
         }
+
+
 
 
 
@@ -181,9 +231,11 @@ module.exports = {
         function createButtons() {
 
 
+
             return new ActionRowBuilder()
 
                 .addComponents(
+
 
                     new ButtonBuilder()
 
@@ -191,9 +243,10 @@ module.exports = {
 
                         .setEmoji("◀️")
 
-                        .setStyle(ButtonStyle.Secondary)
+                        .setStyle(ButtonStyle.Primary)
 
                         .setDisabled(page === 0),
+
 
 
 
@@ -203,64 +256,76 @@ module.exports = {
 
                         .setEmoji("▶️")
 
-                        .setStyle(ButtonStyle.Secondary)
+                        .setStyle(ButtonStyle.Primary)
 
                         .setDisabled(page === pages.length - 1)
 
+
                 );
+
 
         }
 
 
 
 
+
         const message = await interaction.reply({
 
+
             embeds: [
+
                 createEmbed()
+
             ],
 
+
             components: [
+
                 createButtons()
+
             ],
+
 
             fetchReply: true
 
+
         });
+
+
+
 
 
 
 
         const collector = message.createMessageComponentCollector({
 
+
             componentType: ComponentType.Button,
 
-            time: 60000
+
+            time: 300000 // 5 นาที
+
 
         });
+
+
+
+
 
 
 
         collector.on("collect", async i => {
 
 
-            if (i.user.id !== interaction.user.id) {
 
-                return i.reply({
-
-                    content: "❌ เปิดกระเป๋าของตัวเองเท่านั้น",
-
-                    ephemeral: true
-
-                });
-
-            }
-
-
+            // ทุกคนกดดูได้
 
             if (i.customId === "bag_prev") {
 
+
                 page--;
+
 
             }
 
@@ -268,40 +333,61 @@ module.exports = {
 
             if (i.customId === "bag_next") {
 
+
                 page++;
+
 
             }
 
 
 
+
             await i.update({
 
+
                 embeds: [
+
                     createEmbed()
+
                 ],
 
+
                 components: [
+
                     createButtons()
+
                 ]
+
 
             });
 
 
+
         });
+
+
+
+
 
 
 
         collector.on("end", async () => {
 
 
+
             await message.edit({
+
 
                 components: []
 
-            }).catch(()=>{});
+
+            }).catch(() => {});
+
 
 
         });
+
+
 
 
 
