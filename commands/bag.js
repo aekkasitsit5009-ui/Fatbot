@@ -11,8 +11,20 @@ const fs = require("fs");
 const path = require("path");
 
 
-const bagFile = path.join(__dirname, "..", "database", "bags.json");
-const itemFile = path.join(__dirname, "..", "database", "items.json");
+const bagFile = path.join(
+    __dirname,
+    "..",
+    "database",
+    "bags.json"
+);
+
+const itemFile = path.join(
+    __dirname,
+    "..",
+    "database",
+    "items.json"
+);
+
 
 
 module.exports = {
@@ -26,31 +38,59 @@ module.exports = {
 
 
 
+
+
     async execute(interaction) {
+
 
 
         if (!fs.existsSync(bagFile)) {
 
+
             return interaction.reply({
-                content: "❌ ยังไม่มีกระเป๋าทีม",
-                ephemeral: true
+
+                content:
+                "❌ ยังไม่มีกระเป๋าทีม",
+
+                ephemeral:true
+
             });
+
 
         }
 
 
 
+
+
+
+
         const bags = JSON.parse(
-            fs.readFileSync(bagFile, "utf8")
+
+            fs.readFileSync(
+                bagFile,
+                "utf8"
+            )
+
         );
+
+
 
 
 
         const items = fs.existsSync(itemFile)
 
-            ? JSON.parse(fs.readFileSync(itemFile, "utf8"))
+            ? JSON.parse(
+                fs.readFileSync(
+                    itemFile,
+                    "utf8"
+                )
+            )
 
             : {};
+
+
+
 
 
 
@@ -59,19 +99,30 @@ module.exports = {
 
 
 
+
+
+
+
         for (const id in bags) {
 
 
-            if (interaction.member.roles.cache.has(id)) {
+            if (
+                interaction.member.roles.cache.has(id)
+            ) {
 
 
                 bag = bags[id];
 
                 break;
 
+
             }
 
+
         }
+
+
+
 
 
 
@@ -81,14 +132,18 @@ module.exports = {
 
             return interaction.reply({
 
-                content: "❌ คุณไม่มีกระเป๋าทีม",
+                content:
+                "❌ คุณไม่มีกระเป๋าทีม",
 
-                ephemeral: true
+                ephemeral:true
 
             });
 
 
         }
+
+
+
 
 
 
@@ -101,43 +156,71 @@ module.exports = {
 
 
 
+
+
+
+
         for (const itemId in bag.items) {
 
 
-            const amount = bag.items[itemId];
 
-            const item = items[itemId];
-
-
-
-            if (!item) continue;
+            const amount =
+                bag.items[itemId];
 
 
 
-            const stackCount = Math.ceil(
-                amount / item.stack
-            );
+            const item =
+                items[itemId];
 
 
 
-            usedSlot += stackCount * item.slot;
+            if (!item)
+                continue;
+
+
+
+
+
+
+
+            // คิดช่องจากจำนวนจริง
+
+            const itemSlot =
+                amount * item.slot;
+
+
+
+
+
+            usedSlot += itemSlot;
+
+
+
+
 
 
 
 
             inventory.push({
 
-                name: `${item.emoji} ${item.name}`,
+
+                name:
+                `${item.emoji} ${item.name}`,
+
+
 
                 value:
-`จำนวน: **${amount}**
-📦: **${stackCount * item.slot}**`
+`จำนวน: ${amount}
+📦 ${itemSlot} ช่อง`
+
 
             });
 
 
 
         }
+
+
 
 
 
@@ -146,16 +229,25 @@ module.exports = {
         if (inventory.length === 0) {
 
 
+
             inventory.push({
 
-                name: "📭 กระเป๋าว่าง",
 
-                value: "*ยังไม่มีสิ่งของ*"
+                name:
+                "📭 กระเป๋าว่าง",
+
+
+                value:
+                "ยังไม่มีสิ่งของ"
+
 
             });
 
 
         }
+
+
+
 
 
 
@@ -168,6 +260,10 @@ module.exports = {
 
 
 
+
+
+
+
         for (
             let i = 0;
             i < inventory.length;
@@ -176,11 +272,18 @@ module.exports = {
 
 
             pages.push(
-                inventory.slice(i, i + perPage)
+
+                inventory.slice(
+                    i,
+                    i + perPage
+                )
+
             );
 
 
         }
+
+
 
 
 
@@ -190,38 +293,55 @@ module.exports = {
 
 
 
+
+
+
+
         function createEmbed() {
+
 
 
             const embed = new EmbedBuilder()
 
 
+
                 .setColor(0x5865F2)
 
 
-                .setTitle(`🎒 ${bag.name}`)
-
 
                 .setDescription(
-`📦 ช่องเก็บของ
 
-**${usedSlot}/${bag.maxSlot}**
+`🎒 ${bag.name}
 
-หน้า **${page + 1}/${pages.length}**`
+📦 ช่องเก็บของ
+${usedSlot}/${bag.maxSlot}
+
+หน้า ${page + 1}/${pages.length}`
+
                 );
 
 
 
+
+
             embed.addFields(
+
                 pages[page]
+
             );
+
+
 
 
 
             return embed;
 
 
+
         }
+
+
+
 
 
 
@@ -239,26 +359,40 @@ module.exports = {
 
                     new ButtonBuilder()
 
-                        .setCustomId("bag_prev")
+                        .setCustomId(
+                            "bag_prev"
+                        )
 
                         .setEmoji("◀️")
 
-                        .setStyle(ButtonStyle.Primary)
+                        .setStyle(
+                            ButtonStyle.Primary
+                        )
 
-                        .setDisabled(page === 0),
+                        .setDisabled(
+                            page === 0
+                        ),
+
 
 
 
 
                     new ButtonBuilder()
 
-                        .setCustomId("bag_next")
+                        .setCustomId(
+                            "bag_next"
+                        )
 
                         .setEmoji("▶️")
 
-                        .setStyle(ButtonStyle.Primary)
+                        .setStyle(
+                            ButtonStyle.Primary
+                        )
 
-                        .setDisabled(page === pages.length - 1)
+                        .setDisabled(
+                            page === pages.length - 1
+                        )
+
 
 
                 );
@@ -270,24 +404,28 @@ module.exports = {
 
 
 
+
+
+
+
         const message = await interaction.reply({
 
 
-            embeds: [
+            embeds:[
 
                 createEmbed()
 
             ],
 
 
-            components: [
+            components:[
 
                 createButtons()
 
             ],
 
 
-            fetchReply: true
+            fetchReply:true
 
 
         });
@@ -298,72 +436,60 @@ module.exports = {
 
 
 
-        const collector = message.createMessageComponentCollector({
 
 
-            componentType: ComponentType.Button,
+        const collector =
+            message.createMessageComponentCollector({
 
 
-            time: 300000 // 5 นาที
+                componentType:
+                ComponentType.Button,
 
 
-        });
-
-
-
-
-
-
-
-        collector.on("collect", async i => {
-
-
-
-            // ทุกคนกดดูได้
-
-            if (i.customId === "bag_prev") {
-
-
-                page--;
-
-
-            }
-
-
-
-            if (i.customId === "bag_next") {
-
-
-                page++;
-
-
-            }
-
-
-
-
-            await i.update({
-
-
-                embeds: [
-
-                    createEmbed()
-
-                ],
-
-
-                components: [
-
-                    createButtons()
-
-                ]
+                time:
+                300000
 
 
             });
 
 
 
-        });
+
+
+
+
+
+
+        collector.on(
+            "collect",
+            async i => {
+
+
+
+                if (
+                    i.customId === "bag_prev"
+                ) {
+
+
+                    page--;
+
+
+                }
+
+
+
+
+
+
+                if (
+                    i.customId === "bag_next"
+                ) {
+
+
+                    page++;
+
+
+                }
 
 
 
@@ -371,23 +497,57 @@ module.exports = {
 
 
 
-        collector.on("end", async () => {
+                await i.update({
+
+
+                    embeds:[
+
+                        createEmbed()
+
+                    ],
+
+
+                    components:[
+
+                        createButtons()
+
+                    ]
+
+
+                });
 
 
 
-            await message.edit({
+            }
 
-
-                components: []
-
-
-            }).catch(() => {});
+        );
 
 
 
-        });
 
 
+
+
+
+        collector.on(
+            "end",
+            async () => {
+
+
+
+                await message.edit({
+
+
+                    components:[]
+
+
+                }).catch(() => {});
+
+
+
+            }
+
+        );
 
 
 
