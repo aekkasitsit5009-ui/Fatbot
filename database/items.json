@@ -1111,5 +1111,26 @@
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
     "stack": 999
+  },
+  "002": {
+    "name": "Canuck Shotguns",
+    "emoji": "🔫",
+    "category": "อาวุธ",
+    "slot": 10,
+    "stack": 999
+  },
+  "003": {
+    "name": "กระสุนลูกซอง",
+    "emoji": "🟡",
+    "category": "กระสุน",
+    "slot": 1,
+    "stack": 999
+  },
+  "special": {
+    "name": "พวงกุญแจปริศนา",
+    "emoji": "🗝️",
+    "category": "พิเศษ",
+    "slot": 1,
+    "stack": 1
   }
 }
