@@ -420,7 +420,7 @@ module.exports = {
 
             .setDescription(
 
-`🎒 ใช้ไอเทม: ${item.emoji} ${item.name} x${amount} | 📝 เหตุผล: ${reason}`
+`🎒 ใช้ไอเทม: ${item.emoji} ${item.name} x${amount} | ${reason}`
 
             );
 
