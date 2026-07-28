@@ -72,11 +72,6 @@ module.exports = {
 
 
 
-
-    // =========================
-    // AUTOCOMPLETE
-    // =========================
-
     async autocomplete(interaction) {
 
 
@@ -91,28 +86,14 @@ module.exports = {
 
 
 
-
         const items = JSON.parse(
-
-            fs.readFileSync(
-                itemFile,
-                "utf8"
-            )
-
+            fs.readFileSync(itemFile, "utf8")
         );
-
 
 
         const bags = JSON.parse(
-
-            fs.readFileSync(
-                bagFile,
-                "utf8"
-            )
-
+            fs.readFileSync(bagFile, "utf8")
         );
-
-
 
 
 
@@ -127,55 +108,34 @@ module.exports = {
                 interaction.member.roles.cache.has(id)
             ) {
 
-
                 bag = bags[id];
 
                 break;
 
-
             }
 
-
         }
-
-
 
 
 
         if (!bag) {
 
-
             return interaction.respond([]);
-
 
         }
 
 
 
-
-
-
-
         const focused =
-            interaction.options
-                .getFocused(true);
+            interaction.options.getFocused(true);
 
 
 
 
 
+        // เลือกหมวดหมู่จากของที่มี
 
-
-
-        // =========================
-        // เลือกหมวดหมู่
-        // =========================
-
-
-        if (
-            focused.name === "category"
-        ) {
-
+        if (focused.name === "category") {
 
 
             const categories = [
@@ -196,38 +156,29 @@ module.exports = {
 
 
 
-
-
             return interaction.respond(
 
                 categories
 
                     .filter(category =>
-
                         category
                             .toLowerCase()
                             .includes(
-                                focused.value
-                                    .toLowerCase()
+                                focused.value.toLowerCase()
                             )
-
                     )
 
-                    .slice(0,25)
+                    .slice(0, 25)
 
                     .map(category => ({
 
-                        name:
-                        `📂 ${category}`,
+                        name: `📂 ${category}`,
 
-                        value:
-                        category
+                        value: category
 
                     }))
 
-
             );
-
 
 
         }
@@ -238,22 +189,13 @@ module.exports = {
 
 
 
+        // เลือกไอเท็มจากของที่มี
 
-
-        // =========================
-        // เลือกไอเท็ม
-        // =========================
-
-
-        if (
-            focused.name === "item"
-        ) {
-
+        if (focused.name === "item") {
 
 
             const category =
-                interaction.options
-                    .getString("category");
+                interaction.options.getString("category");
 
 
 
@@ -261,17 +203,10 @@ module.exports = {
 
 
 
+            for (const id in bag.items) {
 
 
-            for (
-                const id in bag.items
-            ) {
-
-
-
-                const item =
-                    items[id];
-
+                const item = items[id];
 
 
                 if (!item)
@@ -279,37 +214,22 @@ module.exports = {
 
 
 
-
-                if (
-                    item.category !== category
-                )
+                if (item.category !== category)
                     continue;
-
-
 
 
 
                 choices.push({
 
-
                     name:
                     `${item.emoji} ${item.name} x${bag.items[id]}`,
 
-
-                    value:
-                    id
-
-
+                    value: id
 
                 });
 
 
-
             }
-
-
-
-
 
 
 
@@ -318,20 +238,16 @@ module.exports = {
                 choices
 
                     .filter(choice =>
-
                         choice.name
                             .toLowerCase()
                             .includes(
-                                focused.value
-                                    .toLowerCase()
+                                focused.value.toLowerCase()
                             )
-
                     )
 
-                    .slice(0,25)
+                    .slice(0, 25)
 
             );
-
 
 
         }
@@ -346,31 +262,19 @@ module.exports = {
 
 
 
-
-    // =========================
-    // ใช้ไอเท็ม
-    // =========================
-
-
     async execute(interaction) {
 
 
-
         const itemId =
-            interaction.options
-                .getString("item");
-
+            interaction.options.getString("item");
 
 
         const amount =
-            interaction.options
-                .getInteger("amount");
-
+            interaction.options.getInteger("amount");
 
 
         const reason =
-            interaction.options
-                .getString("reason")
+            interaction.options.getString("reason")
             ||
             "ไม่ได้ระบุ";
 
@@ -378,29 +282,14 @@ module.exports = {
 
 
 
-
-
         const bags = JSON.parse(
-
-            fs.readFileSync(
-                bagFile,
-                "utf8"
-            )
-
+            fs.readFileSync(bagFile, "utf8")
         );
-
 
 
         const items = JSON.parse(
-
-            fs.readFileSync(
-                itemFile,
-                "utf8"
-            )
-
+            fs.readFileSync(itemFile, "utf8")
         );
-
-
 
 
 
@@ -410,31 +299,20 @@ module.exports = {
 
 
 
-
-
-        for (
-            const id in bags
-        ) {
-
+        for (const id in bags) {
 
 
             if (
                 interaction.member.roles.cache.has(id)
             ) {
 
-
                 bag = bags[id];
 
                 break;
 
-
             }
 
-
         }
-
-
-
 
 
 
@@ -444,10 +322,9 @@ module.exports = {
 
             return interaction.reply({
 
-                content:
-                "❌ คุณไม่มีกระเป๋าทีม",
+                content: "❌ คุณไม่มีกระเป๋าทีม",
 
-                ephemeral:true
+                ephemeral: true
 
             });
 
@@ -458,21 +335,14 @@ module.exports = {
 
 
 
-
-
-
-        if (
-            !bag.items[itemId]
-        ) {
-
+        if (!bag.items[itemId]) {
 
 
             return interaction.reply({
 
-                content:
-                "❌ ไม่มีไอเทมนี้ในกระเป๋า",
+                content: "❌ ไม่มีไอเทมนี้ในกระเป๋า",
 
-                ephemeral:true
+                ephemeral: true
 
             });
 
@@ -483,20 +353,14 @@ module.exports = {
 
 
 
-
-
-        if (
-            bag.items[itemId] < amount
-        ) {
-
+        if (bag.items[itemId] < amount) {
 
 
             return interaction.reply({
 
-                content:
-                "❌ จำนวนไอเทมไม่พอ",
+                content: "❌ จำนวนไอเทมไม่พอ",
 
-                ephemeral:true
+                ephemeral: true
 
             });
 
@@ -507,20 +371,7 @@ module.exports = {
 
 
 
-
-
-        const item =
-            items[itemId];
-
-
-
-
-
-
-
-        const before =
-            bag.items[itemId];
-
+        const item = items[itemId];
 
 
 
@@ -531,12 +382,7 @@ module.exports = {
 
 
 
-
-
-
-        if (
-            bag.items[itemId] <= 0
-        ) {
+        if (bag.items[itemId] <= 0) {
 
 
             delete bag.items[itemId];
@@ -548,29 +394,14 @@ module.exports = {
 
 
 
-
-
-        const after =
-            bag.items[itemId] || 0;
-
-
-
-
-
-
-
         fs.writeFileSync(
 
             bagFile,
 
             JSON.stringify(
-
                 bags,
-
                 null,
-
                 2
-
             )
 
         );
@@ -581,37 +412,15 @@ module.exports = {
 
 
 
-
         const embed = new EmbedBuilder()
-
 
 
             .setColor(0xFEE75C)
 
 
-
             .setDescription(
 
-`### 🎒 ใช้ไอเทม
-
-
-${item.emoji} **${item.name}**
-
-
-> ใช้ไป **${amount} ชิ้น**
-
-> คงเหลือ **${after}/${item.stack}**
-
-
-📝 เหตุผล
-
-${reason}
-
-
-👤 ผู้ใช้
-
-${interaction.user}`
-
+`🎒 ใช้ไอเทม: ${item.emoji} ${item.name} x${amount} | 📝 เหตุผล: ${reason}`
 
             );
 
@@ -620,10 +429,9 @@ ${interaction.user}`
 
 
 
-
         await interaction.reply({
 
-            embeds:[embed]
+            embeds: [embed]
 
         });
 
