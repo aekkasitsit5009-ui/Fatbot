@@ -6,7 +6,27 @@
     "items": {
       "water": 4,
       "energy_drink": 3,
-      "canned_fish": 5
+      "canned_fish": 5,
+      "canned_soup": 2,
+      "canned_beans": 1,
+      "instant_noodles": 1,
+      "lunch_box": 2,
+      "bandage": 2,
+      "fever_medicine": 1,
+      "cotton": 1,
+      "painkiller": 1,
+      "disinfectant": 1,
+      "lighter": 1,
+      "trash_bag": 1,
+      "engine_oil": 1,
+      "brake_fluid": 1,
+      "coolant": 1,
+      "jumper_cables": 1,
+      "multitool": 1,
+      "wrench": 1,
+      "electric_air_pump": 1,
+      "duct_tape": 1,
+      "screwdriver": 1
     }
   },
   "1530908927825416202": {

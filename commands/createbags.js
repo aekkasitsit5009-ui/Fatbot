@@ -82,7 +82,7 @@ module.exports = {
             .setColor(role.color || 0x57F287)
 
             .setDescription(
-`# 🎒 สร้างกระเป๋าทีมสำเร็จ
+`## 🎒 สร้างกระเป๋าทีมสำเร็จ
 
 **ทีม**
 ${role}

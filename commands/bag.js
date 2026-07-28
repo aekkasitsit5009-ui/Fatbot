@@ -69,9 +69,18 @@ module.exports = {
 
             if (!item) continue;
 
-            usedSlot += item.slot * amount;
+            // จำนวนกอง (Stack)
+            const stackCount = Math.ceil(amount / item.stack);
 
-            text += `${item.emoji} ${item.name} ×${amount}\n`;
+            // ช่องที่ใช้จริง
+            usedSlot += stackCount * item.slot;
+
+            text +=
+`${item.emoji} **${item.name}**
+> **${amount}/${item.stack}**
+> 📦 ${item.slot} ช่อง
+
+`;
 
         }
 
@@ -80,8 +89,7 @@ module.exports = {
             text = "*ยังไม่มีสิ่งของ*";
 
         }
-
-        const embed = new EmbedBuilder()
+                const embed = new EmbedBuilder()
 
             .setColor(0x5865F2)
 
@@ -89,7 +97,7 @@ module.exports = {
 `# 🎒 ${bag.name}
 
 **ช่องเก็บของ**
-${usedSlot}/${bag.maxSlot}
+**${usedSlot}/${bag.maxSlot}**
 
 ${text}`
             );
