@@ -1,6 +1,10 @@
 const {
     SlashCommandBuilder,
-    EmbedBuilder
+    EmbedBuilder,
+    ActionRowBuilder,
+    ButtonBuilder,
+    ButtonStyle,
+    ComponentType
 } = require("discord.js");
 
 const fs = require("fs");
@@ -9,15 +13,16 @@ const path = require("path");
 const bagFile = path.join(__dirname, "..", "database", "bags.json");
 const itemFile = path.join(__dirname, "..", "database", "items.json");
 
+
 module.exports = {
 
     data: new SlashCommandBuilder()
-
         .setName("bag")
-
         .setDescription("ดูกระเป๋าของทีม"),
 
+
     async execute(interaction) {
+
 
         if (!fs.existsSync(bagFile)) {
 
@@ -28,15 +33,19 @@ module.exports = {
 
         }
 
+
         const bags = JSON.parse(
             fs.readFileSync(bagFile, "utf8")
         );
+
 
         const items = fs.existsSync(itemFile)
             ? JSON.parse(fs.readFileSync(itemFile, "utf8"))
             : {};
 
+
         let bag = null;
+
 
         for (const id in bags) {
 
@@ -49,6 +58,7 @@ module.exports = {
 
         }
 
+
         if (!bag) {
 
             return interaction.reply({
@@ -58,55 +68,242 @@ module.exports = {
 
         }
 
+
+
+        let inventory = [];
         let usedSlot = 0;
-        let text = "";
+
+
 
         for (const itemId in bag.items) {
 
-            const amount = bag.items[itemId];
 
+            const amount = bag.items[itemId];
             const item = items[itemId];
+
 
             if (!item) continue;
 
-            // จำนวนกอง (Stack)
-            const stackCount = Math.ceil(amount / item.stack);
 
-            // ช่องที่ใช้จริง
-            usedSlot += stackCount * item.slot;
-
-            text +=
-`${item.emoji} **${item.name}**
-> **${amount}/${item.stack}**
-> 📦 ${item.slot} ช่อง
-
-`;
-
-        }
-
-        if (text === "") {
-
-            text = "*ยังไม่มีสิ่งของ*";
-
-        }
-                const embed = new EmbedBuilder()
-
-            .setColor(0x5865F2)
-
-            .setDescription(
-`# 🎒 ${bag.name}
-
-**ช่องเก็บของ**
-**${usedSlot}/${bag.maxSlot}**
-
-${text}`
+            const stackCount = Math.ceil(
+                amount / item.stack
             );
 
-        await interaction.reply({
 
-            embeds: [embed]
+            usedSlot += stackCount * item.slot;
+
+
+
+            inventory.push({
+
+                name: `${item.emoji} ${item.name}`,
+
+                value:
+`จำนวน: **${amount}**
+ใช้ช่อง: **${stackCount * item.slot}**`
+
+
+            });
+
+
+        }
+
+
+
+        if (inventory.length === 0) {
+
+            inventory.push({
+
+                name: "📭 กระเป๋าว่าง",
+
+                value: "*ยังไม่มีสิ่งของ*"
+
+            });
+
+        }
+
+
+
+        // จำนวนของต่อหน้า
+        const perPage = 6;
+
+
+        const pages = [];
+
+
+        for (
+            let i = 0;
+            i < inventory.length;
+            i += perPage
+        ) {
+
+            pages.push(
+                inventory.slice(i, i + perPage)
+            );
+
+        }
+
+
+
+        let page = 0;
+
+
+
+        function createEmbed() {
+
+
+            const embed = new EmbedBuilder()
+
+                .setColor(0x5865F2)
+
+                .setTitle(`🎒 ${bag.name}`)
+
+                .setDescription(
+`📦 ช่องเก็บของ
+**${usedSlot}/${bag.maxSlot}**
+
+หน้า **${page + 1}/${pages.length}**`
+                );
+
+
+            embed.addFields(
+                pages[page]
+            );
+
+
+            return embed;
+
+        }
+
+
+
+
+        function createButtons() {
+
+
+            return new ActionRowBuilder()
+
+                .addComponents(
+
+                    new ButtonBuilder()
+
+                        .setCustomId("bag_prev")
+
+                        .setEmoji("◀️")
+
+                        .setStyle(ButtonStyle.Secondary)
+
+                        .setDisabled(page === 0),
+
+
+
+                    new ButtonBuilder()
+
+                        .setCustomId("bag_next")
+
+                        .setEmoji("▶️")
+
+                        .setStyle(ButtonStyle.Secondary)
+
+                        .setDisabled(page === pages.length - 1)
+
+                );
+
+        }
+
+
+
+
+        const message = await interaction.reply({
+
+            embeds: [
+                createEmbed()
+            ],
+
+            components: [
+                createButtons()
+            ],
+
+            fetchReply: true
 
         });
+
+
+
+
+        const collector = message.createMessageComponentCollector({
+
+            componentType: ComponentType.Button,
+
+            time: 60000
+
+        });
+
+
+
+        collector.on("collect", async i => {
+
+
+            if (i.user.id !== interaction.user.id) {
+
+                return i.reply({
+
+                    content: "❌ เปิดกระเป๋าของตัวเองเท่านั้น",
+
+                    ephemeral: true
+
+                });
+
+            }
+
+
+
+            if (i.customId === "bag_prev") {
+
+                page--;
+
+            }
+
+
+
+            if (i.customId === "bag_next") {
+
+                page++;
+
+            }
+
+
+
+            await i.update({
+
+                embeds: [
+                    createEmbed()
+                ],
+
+                components: [
+                    createButtons()
+                ]
+
+            });
+
+
+        });
+
+
+
+        collector.on("end", async () => {
+
+
+            await message.edit({
+
+                components: []
+
+            }).catch(()=>{});
+
+
+        });
+
+
 
     }
 

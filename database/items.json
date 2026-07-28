@@ -146,7 +146,6 @@
     "slot": 1,
     "stack": 10
   },
-
   "white_bread": {
     "name": "ขนมปังขาว",
     "emoji": "🍞",
@@ -217,7 +216,6 @@
     "slot": 1,
     "stack": 10
   },
-
   "water": {
     "name": "น้ำเปล่า",
     "emoji": "🥤",
@@ -323,7 +321,7 @@
     "slot": 1,
     "stack": 10
   },
-    "potato_chips": {
+  "potato_chips": {
     "name": "มันฝรั่งทอด",
     "emoji": "🥔",
     "category": "ขนม",
@@ -421,7 +419,6 @@
     "slot": 1,
     "stack": 10
   },
-
   "rice": {
     "name": "ข้าวสาร",
     "emoji": "🍚",
@@ -513,7 +510,6 @@
     "slot": 2,
     "stack": 10
   },
-
   "egg": {
     "name": "ไข่ไก่",
     "emoji": "🥚",
@@ -598,7 +594,7 @@
     "slot": 1,
     "stack": 10
   },
-    "bandage": {
+  "bandage": {
     "name": "ผ้าพันแผล",
     "emoji": "🩹",
     "category": "ยาและเวชภัณฑ์",
@@ -682,7 +678,6 @@
     "slot": 4,
     "stack": 2
   },
-
   "toothbrush": {
     "name": "แปรงสีฟัน",
     "emoji": "🪥",
@@ -788,7 +783,6 @@
     "slot": 1,
     "stack": 20
   },
-
   "dish_soap": {
     "name": "น้ำยาล้างจาน",
     "emoji": "🧴",
@@ -901,7 +895,7 @@
     "slot": 1,
     "stack": 20
   },
-    "pen": {
+  "pen": {
     "name": "ปากกา",
     "emoji": "🖊️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
@@ -1048,7 +1042,6 @@
     "slot": 1,
     "stack": 5
   },
-
   "engine_oil": {
     "name": "น้ำมันเครื่อง",
     "emoji": "🛢️",
@@ -1097,5 +1090,12 @@
     "category": "ของใช้สำหรับรถ",
     "slot": 1,
     "stack": 20
+  },
+  "gun": {
+    "name": "ปืนพก",
+    "emoji": "🔫",
+    "category": "อาวุธ",
+    "slot": 4,
+    "stack": 8
   }
 }

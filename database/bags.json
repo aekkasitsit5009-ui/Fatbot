@@ -10,7 +10,7 @@
       "canned_soup": 2,
       "canned_beans": 1,
       "instant_noodles": 1,
-      "lunch_box": 2,
+      "lunch_box": 1,
       "bandage": 2,
       "fever_medicine": 1,
       "cotton": 1,
@@ -26,7 +26,8 @@
       "wrench": 1,
       "electric_air_pump": 1,
       "duct_tape": 1,
-      "screwdriver": 1
+      "screwdriver": 1,
+      "gun": 1
     }
   },
   "1530908927825416202": {
