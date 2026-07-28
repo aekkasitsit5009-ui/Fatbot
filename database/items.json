@@ -4,1099 +4,1099 @@
     "emoji": "🥪",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "ham_cheese_sandwich": {
     "name": "แฮมชีสแซนด์วิช",
     "emoji": "🥪",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "burger": {
     "name": "เบอร์เกอร์",
     "emoji": "🍔",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "hotdog": {
     "name": "ฮอตดอก",
     "emoji": "🌭",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "pizza_slice": {
     "name": "พิซซ่าชิ้น",
     "emoji": "🍕",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "lunch_box": {
     "name": "ข้าวกล่อง",
     "emoji": "🍱",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "fried_rice": {
     "name": "ข้าวผัด",
     "emoji": "🍛",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "curry_rice": {
     "name": "ข้าวแกง",
     "emoji": "🍛",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "chicken_rice": {
     "name": "ข้าวหน้าไก่",
     "emoji": "🍗",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "beef_rice": {
     "name": "ข้าวหน้าเนื้อ",
     "emoji": "🥩",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "macaroni": {
     "name": "มักกะโรนี",
     "emoji": "🍝",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "spaghetti": {
     "name": "สปาเกตตี",
     "emoji": "🍝",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "salad": {
     "name": "สลัด",
     "emoji": "🥗",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "fruit_cup": {
     "name": "ผลไม้หั่น",
     "emoji": "🍎",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "fried_chicken": {
     "name": "ไก่ทอด",
     "emoji": "🍗",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "nuggets": {
     "name": "นักเก็ต",
     "emoji": "🍗",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "fries": {
     "name": "เฟรนช์ฟรายส์",
     "emoji": "🍟",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "sausage": {
     "name": "ไส้กรอก",
     "emoji": "🌭",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "gyoza": {
     "name": "เกี๊ยวซ่า",
     "emoji": "🥟",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "cup_noodles": {
     "name": "บะหมี่ถ้วย",
     "emoji": "🍜",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cup_porridge": {
     "name": "โจ๊กถ้วย",
     "emoji": "🥣",
     "category": "อาหารพร้อมรับประทาน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "white_bread": {
     "name": "ขนมปังขาว",
     "emoji": "🍞",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "wholewheat_bread": {
     "name": "ขนมปังโฮลวีต",
     "emoji": "🍞",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "croissant": {
     "name": "ครัวซองต์",
     "emoji": "🥐",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "donut": {
     "name": "โดนัท",
     "emoji": "🍩",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "muffin": {
     "name": "มัฟฟิน",
     "emoji": "🧁",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cake": {
     "name": "เค้ก",
     "emoji": "🍰",
     "category": "เบเกอรี่",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "cookie": {
     "name": "คุกกี้",
     "emoji": "🍪",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "pie": {
     "name": "พาย",
     "emoji": "🥧",
     "category": "เบเกอรี่",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "brownie": {
     "name": "บราวนี่",
     "emoji": "🍫",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "egg_tart": {
     "name": "ทาร์ตไข่",
     "emoji": "🥧",
     "category": "เบเกอรี่",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "water": {
     "name": "น้ำเปล่า",
     "emoji": "🥤",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "mineral_water": {
     "name": "น้ำแร่",
     "emoji": "💧",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "soft_drink": {
     "name": "น้ำอัดลม",
     "emoji": "🥤",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "fruit_juice": {
     "name": "น้ำผลไม้",
     "emoji": "🧃",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "green_tea": {
     "name": "ชาเขียว",
     "emoji": "🍵",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "lemon_tea": {
     "name": "ชามะนาว",
     "emoji": "🍋",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "black_tea": {
     "name": "ชาดำ",
     "emoji": "🫖",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "canned_coffee": {
     "name": "กาแฟกระป๋อง",
     "emoji": "☕",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "coffee": {
     "name": "กาแฟสด",
     "emoji": "☕",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "energy_drink": {
     "name": "เครื่องดื่มชูกำลัง",
     "emoji": "⚡",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "milk": {
     "name": "นมสด",
     "emoji": "🥛",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "chocolate_milk": {
     "name": "นมช็อกโกแลต",
     "emoji": "🥛",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "soy_milk": {
     "name": "นมถั่วเหลือง",
     "emoji": "🥛",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "drinkable_yogurt": {
     "name": "โยเกิร์ตพร้อมดื่ม",
     "emoji": "🥛",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "electrolyte_drink": {
     "name": "น้ำเกลือแร่",
     "emoji": "💧",
     "category": "เครื่องดื่ม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "potato_chips": {
     "name": "มันฝรั่งทอด",
     "emoji": "🥔",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "corn_snack": {
     "name": "ข้าวโพดอบกรอบ",
     "emoji": "🌽",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "popcorn": {
     "name": "ป๊อปคอร์น",
     "emoji": "🍿",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "peanuts": {
     "name": "ถั่วลิสง",
     "emoji": "🥜",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cashew": {
     "name": "เม็ดมะม่วงหิมพานต์",
     "emoji": "🥜",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "almond": {
     "name": "อัลมอนด์",
     "emoji": "🥜",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "chocolate": {
     "name": "ช็อกโกแลต",
     "emoji": "🍫",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "wafer": {
     "name": "เวเฟอร์",
     "emoji": "🍪",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "candy": {
     "name": "ลูกอม",
     "emoji": "🍬",
     "category": "ขนม",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "gum": {
     "name": "หมากฝรั่ง",
     "emoji": "🫧",
     "category": "ขนม",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "jelly": {
     "name": "เยลลี่",
     "emoji": "🍮",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "biscuit": {
     "name": "บิสกิต",
     "emoji": "🍪",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cracker": {
     "name": "แครกเกอร์",
     "emoji": "🥠",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "crispy_snack": {
     "name": "ขนมอบกรอบ",
     "emoji": "🍘",
     "category": "ขนม",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "rice": {
     "name": "ข้าวสาร",
     "emoji": "🍚",
     "category": "ของชำ",
     "slot": 3,
-    "stack": 5
+    "stack": 999
   },
   "sugar": {
     "name": "น้ำตาล",
     "emoji": "🧂",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "salt": {
     "name": "เกลือ",
     "emoji": "🧂",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "pepper": {
     "name": "พริกไทย",
     "emoji": "🧂",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "soy_sauce": {
     "name": "ซอสถั่วเหลือง",
     "emoji": "🍶",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "ketchup": {
     "name": "ซอสมะเขือเทศ",
     "emoji": "🍅",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "mayonnaise": {
     "name": "มายองเนส",
     "emoji": "🥫",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cooking_oil": {
     "name": "น้ำมันพืช",
     "emoji": "🫗",
     "category": "ของชำ",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "canned_fish": {
     "name": "ปลากระป๋อง",
     "emoji": "🥫",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "canned_beans": {
     "name": "ถั่วกระป๋อง",
     "emoji": "🥫",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "canned_soup": {
     "name": "ซุปกระป๋อง",
     "emoji": "🥫",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "instant_noodles": {
     "name": "บะหมี่กึ่งสำเร็จรูป",
     "emoji": "🍜",
     "category": "ของชำ",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "cereal": {
     "name": "ซีเรียล",
     "emoji": "🥣",
     "category": "ของชำ",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "egg": {
     "name": "ไข่ไก่",
     "emoji": "🥚",
     "category": "ของสด",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "butter": {
     "name": "เนย",
     "emoji": "🧈",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cheese": {
     "name": "ชีส",
     "emoji": "🧀",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "ham": {
     "name": "แฮม",
     "emoji": "🍖",
     "category": "ของสด",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "bacon": {
     "name": "เบคอน",
     "emoji": "🥓",
     "category": "ของสด",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "fresh_sausage": {
     "name": "ไส้กรอก",
     "emoji": "🌭",
     "category": "ของสด",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "lettuce": {
     "name": "ผักสลัด",
     "emoji": "🥬",
     "category": "ของสด",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "tomato": {
     "name": "มะเขือเทศ",
     "emoji": "🍅",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "cucumber": {
     "name": "แตงกวา",
     "emoji": "🥒",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "apple": {
     "name": "แอปเปิล",
     "emoji": "🍎",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "banana": {
     "name": "กล้วย",
     "emoji": "🍌",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "orange": {
     "name": "ส้ม",
     "emoji": "🍊",
     "category": "ของสด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "bandage": {
     "name": "ผ้าพันแผล",
     "emoji": "🩹",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "plaster": {
     "name": "พลาสเตอร์",
     "emoji": "🩹",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 50
+    "stack": 999
   },
   "cotton": {
     "name": "สำลี",
     "emoji": "☁️",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "alcohol": {
     "name": "แอลกอฮอล์",
     "emoji": "🧴",
     "category": "ยาและเวชภัณฑ์",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "disinfectant": {
     "name": "น้ำยาฆ่าเชื้อ",
     "emoji": "🧪",
     "category": "ยาและเวชภัณฑ์",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "painkiller": {
     "name": "ยาแก้ปวด",
     "emoji": "💊",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "fever_medicine": {
     "name": "ยาลดไข้",
     "emoji": "💊",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "allergy_medicine": {
     "name": "ยาแก้แพ้",
     "emoji": "💊",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "cough_medicine": {
     "name": "ยาแก้ไอ",
     "emoji": "🍯",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "lozenge": {
     "name": "ยาอม",
     "emoji": "🍬",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "vitamin_c": {
     "name": "วิตามินซี",
     "emoji": "🍊",
     "category": "ยาและเวชภัณฑ์",
     "slot": 1,
-    "stack": 30
+    "stack": 999
   },
   "medkit": {
     "name": "ชุดปฐมพยาบาล",
     "emoji": "⛑️",
     "category": "ยาและเวชภัณฑ์",
     "slot": 4,
-    "stack": 2
+    "stack": 999
   },
   "toothbrush": {
     "name": "แปรงสีฟัน",
     "emoji": "🪥",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "toothpaste": {
     "name": "ยาสีฟัน",
     "emoji": "🦷",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "floss": {
     "name": "ไหมขัดฟัน",
     "emoji": "🧵",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "soap": {
     "name": "สบู่",
     "emoji": "🧼",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "shampoo": {
     "name": "แชมพู",
     "emoji": "🧴",
     "category": "ของใช้ส่วนตัว",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "conditioner": {
     "name": "ครีมนวด",
     "emoji": "🧴",
     "category": "ของใช้ส่วนตัว",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "razor": {
     "name": "มีดโกน",
     "emoji": "🪒",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "shaving_foam": {
     "name": "โฟมโกนหนวด",
     "emoji": "🧴",
     "category": "ของใช้ส่วนตัว",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "toilet_paper": {
     "name": "กระดาษชำระ",
     "emoji": "🧻",
     "category": "ของใช้ส่วนตัว",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "tissue": {
     "name": "ทิชชู่",
     "emoji": "🤧",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "wet_tissue": {
     "name": "ทิชชู่เปียก",
     "emoji": "🧻",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "sanitary_pad": {
     "name": "ผ้าอนามัย",
     "emoji": "🩸",
     "category": "ของใช้ส่วนตัว",
     "slot": 2,
-    "stack": 10
+    "stack": 999
   },
   "handkerchief": {
     "name": "ผ้าเช็ดหน้า",
     "emoji": "🧻",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "comb": {
     "name": "หวี",
     "emoji": "🪮",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "hair_tie": {
     "name": "ยางรัดผม",
     "emoji": "🎀",
     "category": "ของใช้ส่วนตัว",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "dish_soap": {
     "name": "น้ำยาล้างจาน",
     "emoji": "🧴",
     "category": "ของใช้ในบ้าน",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "detergent": {
     "name": "ผงซักฟอก",
     "emoji": "🧺",
     "category": "ของใช้ในบ้าน",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "liquid_detergent": {
     "name": "น้ำยาซักผ้า",
     "emoji": "🧴",
     "category": "ของใช้ในบ้าน",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "floor_cleaner": {
     "name": "น้ำยาถูพื้น",
     "emoji": "🪣",
     "category": "ของใช้ในบ้าน",
     "slot": 3,
-    "stack": 5
+    "stack": 999
   },
   "cleaner": {
     "name": "น้ำยาทำความสะอาด",
     "emoji": "🧴",
     "category": "ของใช้ในบ้าน",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "trash_bag": {
     "name": "ถุงขยะ",
     "emoji": "🗑️",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "sponge": {
     "name": "ฟองน้ำ",
     "emoji": "🧽",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "zip_bag": {
     "name": "ถุงซิปล็อก",
     "emoji": "🛍️",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "aa_battery": {
     "name": "ถ่าน AA",
     "emoji": "🔋",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "aaa_battery": {
     "name": "ถ่าน AAA",
     "emoji": "🔋",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "light_bulb": {
     "name": "หลอดไฟ",
     "emoji": "💡",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "duct_tape": {
     "name": "เทปกาว",
     "emoji": "🩹",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "rope": {
     "name": "เชือก",
     "emoji": "🪢",
     "category": "ของใช้ในบ้าน",
     "slot": 2,
-    "stack": 5
+    "stack": 999
   },
   "lighter": {
     "name": "ไฟแช็ก",
     "emoji": "🔥",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "candle": {
     "name": "เทียนไข",
     "emoji": "🕯️",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "matches": {
     "name": "ไม้ขีดไฟ",
     "emoji": "📦",
     "category": "ของใช้ในบ้าน",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "pen": {
     "name": "ปากกา",
     "emoji": "🖊️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "pencil": {
     "name": "ดินสอ",
     "emoji": "✏️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "notebook": {
     "name": "สมุดโน้ต",
     "emoji": "📒",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "envelope": {
     "name": "ซองจดหมาย",
     "emoji": "✉️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "scissors": {
     "name": "กรรไกร",
     "emoji": "✂️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 2,
-    "stack": 2
+    "stack": 999
   },
   "box_cutter": {
     "name": "คัตเตอร์",
     "emoji": "🔪",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 2
+    "stack": 999
   },
   "glue": {
     "name": "กาว",
     "emoji": "🧴",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "usb_cable": {
     "name": "สายชาร์จ USB",
     "emoji": "🔌",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "earphones": {
     "name": "หูฟัง",
     "emoji": "🎧",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 2
+    "stack": 999
   },
   "power_bank": {
     "name": "Power Bank",
     "emoji": "🔋",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 3,
-    "stack": 2
+    "stack": 999
   },
   "mask": {
     "name": "หน้ากากอนามัย",
     "emoji": "😷",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "rubber_gloves": {
     "name": "ถุงมือยาง",
     "emoji": "🧤",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "umbrella": {
     "name": "ร่ม",
     "emoji": "☂️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 3,
-    "stack": 2
+    "stack": 999
   },
   "cloth_bag": {
     "name": "กระเป๋าผ้า",
     "emoji": "🛍️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 2,
-    "stack": 3
+    "stack": 999
   },
   "multitool": {
     "name": "มัลติทูล",
     "emoji": "🛠️",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 2,
-    "stack": 1
+    "stack": 999
   },
   "wrench": {
     "name": "ประแจ",
     "emoji": "🔧",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 2,
-    "stack": 1
+    "stack": 999
   },
   "screwdriver": {
     "name": "ไขควง",
     "emoji": "🪛",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 1
+    "stack": 999
   },
   "electric_air_pump": {
     "name": "ปั๊มลมไฟฟ้า",
     "emoji": "💨",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 7,
-    "stack": 1
+    "stack": 999
   },
   "small_flashlight": {
     "name": "ไฟฉายหัวเล็ก LED",
     "emoji": "🔦",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 2,
-    "stack": 2
+    "stack": 999
   },
   "rag": {
     "name": "ผ้าขี้ริ้ว",
     "emoji": "🧽",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   },
   "work_gloves": {
     "name": "ถุงมือ",
     "emoji": "🧤",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 5
+    "stack": 999
   },
   "engine_oil": {
     "name": "น้ำมันเครื่อง",
     "emoji": "🛢️",
     "category": "ของใช้สำหรับรถ",
     "slot": 4,
-    "stack": 2
+    "stack": 999
   },
   "windshield_fluid": {
     "name": "น้ำยาฉีดกระจก",
     "emoji": "🧴",
     "category": "ของใช้สำหรับรถ",
     "slot": 3,
-    "stack": 2
+    "stack": 999
   },
   "coolant": {
     "name": "น้ำหล่อเย็น",
     "emoji": "🧊",
     "category": "ของใช้สำหรับรถ",
     "slot": 3,
-    "stack": 2
+    "stack": 999
   },
   "brake_fluid": {
     "name": "น้ำมันเบรก",
     "emoji": "🛢️",
     "category": "ของใช้สำหรับรถ",
     "slot": 3,
-    "stack": 2
+    "stack": 999
   },
   "jumper_cables": {
     "name": "สายพ่วงแบตเตอรี่",
     "emoji": "🔌",
     "category": "ของใช้สำหรับรถ",
     "slot": 4,
-    "stack": 1
+    "stack": 999
   },
   "tire_pump": {
     "name": "ที่สูบลมยาง",
     "emoji": "🚲",
     "category": "ของใช้สำหรับรถ",
     "slot": 4,
-    "stack": 1
+    "stack": 999
   },
   "car_fuse": {
     "name": "ฟิวส์รถยนต์",
     "emoji": "⚡",
     "category": "ของใช้สำหรับรถ",
     "slot": 1,
-    "stack": 20
+    "stack": 999
   },
   "gun": {
     "name": "ปืนพก",
     "emoji": "🔫",
     "category": "อาวุธ",
     "slot": 4,
-    "stack": 8
+    "stack": 999
   },
   "bullet": {
     "name": "กระสุนปืนพก",
@@ -1110,6 +1110,6 @@
     "emoji": "⛓️‍💥",
     "category": "อุปกรณ์เบ็ดเตล็ด",
     "slot": 1,
-    "stack": 10
+    "stack": 999
   }
 }
