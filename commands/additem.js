@@ -45,11 +45,9 @@ const data = new SlashCommandBuilder()
 
 
 
-
-// เพิ่ม item1 - item5
+// item1 - item5
 
 for (let i = 1; i <= 5; i++) {
-
 
     data
 
@@ -69,25 +67,17 @@ for (let i = 1; i <= 5; i++) {
                 .setRequired(i === 1)
         );
 
-
 }
-
-
-
 
 
 
 module.exports = {
 
-
     data,
 
 
 
-
-
     async autocomplete(interaction) {
-
 
 
         if (!fs.existsSync(itemFile)) {
@@ -95,8 +85,6 @@ module.exports = {
             return interaction.respond([]);
 
         }
-
-
 
 
 
@@ -111,8 +99,6 @@ module.exports = {
 
 
 
-
-
         const focused =
 
             interaction.options
@@ -121,11 +107,7 @@ module.exports = {
 
 
 
-
-
         const choices = [];
-
-
 
 
 
@@ -135,21 +117,14 @@ module.exports = {
             const item = items[id];
 
 
-
             choices.push({
-
 
                 name:
                 `${item.emoji} ${item.name} (${item.slot} ช่อง)`,
 
-
-                value:
-                id
-
-
+                value:id
 
             });
-
 
 
         }
@@ -158,28 +133,24 @@ module.exports = {
 
 
 
-        const filtered = choices
+        await interaction.respond(
 
-            .filter(choice =>
+            choices
 
-                choice.name
-                    .toLowerCase()
-                    .includes(focused)
+                .filter(choice =>
 
-            )
+                    choice.name
+                        .toLowerCase()
+                        .includes(focused)
 
-            .slice(0, 25);
+                )
 
+                .slice(0,25)
 
-
-
-
-        await interaction.respond(filtered);
-
+        );
 
 
     },
-
 
 
 
@@ -200,29 +171,20 @@ module.exports = {
 
 
 
-
-
         if (!fs.existsSync(bagFile)) {
-
 
 
             return interaction.reply({
 
-
                 content:
                 "❌ ยังไม่มีกระเป๋าทีม",
 
-
                 ephemeral:true
-
 
             });
 
 
-
         }
-
-
 
 
 
@@ -240,8 +202,6 @@ module.exports = {
 
 
 
-
-
         const items = JSON.parse(
 
             fs.readFileSync(
@@ -255,12 +215,7 @@ module.exports = {
 
 
 
-
-
-
         const bag = bags[role.id];
-
-
 
 
 
@@ -269,19 +224,14 @@ module.exports = {
         if (!bag) {
 
 
-
             return interaction.reply({
-
 
                 content:
                 "❌ ทีมนี้ยังไม่มีกระเป๋า",
 
-
                 ephemeral:true
 
-
             });
-
 
 
         }
@@ -293,26 +243,69 @@ module.exports = {
 
 
 
-
-        const added = [];
-
-
-
+        // =========================
+        // คำนวณช่องปัจจุบัน
+        // =========================
 
 
+        let currentSlot = 0;
+
+
+
+        for (const itemId in bag.items) {
+
+
+            const amount =
+                bag.items[itemId];
+
+
+            const item =
+                items[itemId];
+
+
+
+            if (!item)
+                continue;
+
+
+
+
+            const stackCount =
+                Math.ceil(
+                    amount / item.stack
+                );
+
+
+
+            currentSlot +=
+                stackCount * item.slot;
+
+
+        }
+
+
+
+
+
+
+
+
+        // =========================
+        // คำนวณช่องที่จะเพิ่ม
+        // =========================
+
+
+        let addSlot = 0;
 
 
 
         for (let i = 1; i <= 5; i++) {
 
 
-
             const itemId =
 
                 interaction.options
                     .getString(`item${i}`);
-
-
 
 
 
@@ -325,12 +318,125 @@ module.exports = {
 
 
 
-
             if (!itemId || !amount)
                 continue;
 
 
 
+            const item =
+                items[itemId];
+
+
+
+            if (!item)
+                continue;
+
+
+
+            const before =
+                bag.items[itemId] || 0;
+
+
+
+            const after =
+                before + amount;
+
+
+
+
+            const beforeStack =
+                Math.ceil(
+                    before / item.stack
+                );
+
+
+
+            const afterStack =
+                Math.ceil(
+                    after / item.stack
+                );
+
+
+
+            const extraStack =
+                afterStack - beforeStack;
+
+
+
+            addSlot +=
+                extraStack * item.slot;
+
+
+
+        }
+
+
+
+
+
+
+
+        if (
+            currentSlot + addSlot > bag.maxSlot
+        ) {
+
+
+            return interaction.reply({
+
+                content:
+`❌ ช่องเก็บของไม่พอ
+
+📦 ปัจจุบัน ${currentSlot}/${bag.maxSlot}
+
+➕ ต้องการเพิ่ม ${addSlot} ช่อง
+
+เหลือ ${bag.maxSlot - currentSlot} ช่อง`,
+
+                ephemeral:true
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+
+        // =========================
+        // เพิ่มของ
+        // =========================
+
+
+        const added = [];
+
+
+
+
+        for (let i = 1; i <= 5; i++) {
+
+
+            const itemId =
+
+                interaction.options
+                    .getString(`item${i}`);
+
+
+
+            const amount =
+
+                interaction.options
+                    .getInteger(`amount${i}`);
+
+
+
+
+
+            if (!itemId || !amount)
+                continue;
 
 
 
@@ -341,18 +447,11 @@ module.exports = {
 
 
 
-
-
             if (!bag.items[itemId]) {
-
 
                 bag.items[itemId] = 0;
 
-
             }
-
-
-
 
 
 
@@ -360,29 +459,18 @@ module.exports = {
 
 
 
-
-
-
-
-
             added.push({
-
 
                 item:
                 items[itemId],
 
-
                 amount
-
-
 
             });
 
 
 
-
         }
-
 
 
 
@@ -393,19 +481,14 @@ module.exports = {
         if (added.length === 0) {
 
 
-
             return interaction.reply({
-
 
                 content:
                 "❌ ไม่ได้เลือกไอเทม",
 
-
                 ephemeral:true
 
-
             });
-
 
 
         }
@@ -416,12 +499,9 @@ module.exports = {
 
 
 
-
-
         fs.writeFileSync(
 
             bagFile,
-
 
             JSON.stringify(
                 bags,
@@ -438,15 +518,12 @@ module.exports = {
 
 
 
-
         const embed = new EmbedBuilder()
-
 
 
             .setColor(
                 role.color || 0x2b2d31
             )
-
 
 
             .setDescription(
@@ -462,16 +539,11 @@ module.exports = {
 
 
 
-
-
         await interaction.reply({
-
 
             embeds:[embed]
 
-
         });
-
 
 
     }
