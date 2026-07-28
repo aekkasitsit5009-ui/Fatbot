@@ -6,16 +6,33 @@ const {
 const fs = require("fs");
 const path = require("path");
 
-const bagFile = path.join(__dirname, "..", "database", "bags.json");
-const itemFile = path.join(__dirname, "..", "database", "items.json");
+
+const bagFile = path.join(
+    __dirname,
+    "..",
+    "database",
+    "bags.json"
+);
+
+
+const itemFile = path.join(
+    __dirname,
+    "..",
+    "database",
+    "items.json"
+);
+
+
 
 module.exports = {
+
 
     data: new SlashCommandBuilder()
 
         .setName("useitem")
 
         .setDescription("ใช้ไอเทมจากกระเป๋าทีม")
+
 
         .addStringOption(option =>
             option
@@ -25,6 +42,7 @@ module.exports = {
                 .setAutocomplete(true)
         )
 
+
         .addStringOption(option =>
             option
                 .setName("item")
@@ -33,12 +51,14 @@ module.exports = {
                 .setAutocomplete(true)
         )
 
+
         .addIntegerOption(option =>
             option
                 .setName("amount")
                 .setDescription("จำนวน")
                 .setRequired(true)
         )
+
 
         .addStringOption(option =>
             option
@@ -47,173 +67,496 @@ module.exports = {
                 .setRequired(false)
         ),
 
+
+
+
+
+
+
+    // =========================
+    // AUTOCOMPLETE
+    // =========================
+
     async autocomplete(interaction) {
 
-        if (!fs.existsSync(itemFile))
+
+        if (
+            !fs.existsSync(itemFile) ||
+            !fs.existsSync(bagFile)
+        ) {
+
             return interaction.respond([]);
 
+        }
+
+
+
+
         const items = JSON.parse(
-            fs.readFileSync(itemFile, "utf8")
+
+            fs.readFileSync(
+                itemFile,
+                "utf8"
+            )
+
         );
 
-        const focused =
-            interaction.options.getFocused(true);
 
-        if (focused.name === "category") {
-
-            const categories = [
-                ...new Set(
-                    Object.values(items).map(i => i.category)
-                )
-            ];
-
-            return interaction.respond(
-
-                categories
-
-                    .filter(c =>
-                        c.toLowerCase().includes(
-                            focused.value.toLowerCase()
-                        )
-                    )
-
-                    .slice(0, 25)
-
-                    .map(c => ({
-
-                        name: c,
-
-                        value: c
-
-                    }))
-
-            );
-
-        }
-
-        if (focused.name === "item") {
-
-            const category =
-                interaction.options.getString("category");
-
-            const choices = [];
-
-            for (const id in items) {
-
-                const item = items[id];
-
-                if (item.category !== category)
-                    continue;
-
-                choices.push({
-
-                    name: `${item.emoji} ${item.name}`,
-
-                    value: id
-
-                });
-
-            }
-
-            return interaction.respond(
-
-                choices
-
-                    .filter(c =>
-                        c.name.toLowerCase().includes(
-                            focused.value.toLowerCase()
-                        )
-                    )
-
-                    .slice(0, 25)
-
-            );
-
-        }
-
-    },
-
-    async execute(interaction) {
-
-        const itemId =
-            interaction.options.getString("item");
-
-        const amount =
-            interaction.options.getInteger("amount");
-
-        const reason =
-            interaction.options.getString("reason") ||
-            "ไม่ได้ระบุ";
 
         const bags = JSON.parse(
-            fs.readFileSync(bagFile, "utf8")
+
+            fs.readFileSync(
+                bagFile,
+                "utf8"
+            )
+
         );
 
-        const items = JSON.parse(
-            fs.readFileSync(itemFile, "utf8")
-        );
+
+
+
 
         let bag = null;
 
+
+
         for (const id in bags) {
 
-            if (interaction.member.roles.cache.has(id)) {
+
+            if (
+                interaction.member.roles.cache.has(id)
+            ) {
+
 
                 bag = bags[id];
 
                 break;
 
+
             }
 
+
         }
+
+
+
+
 
         if (!bag) {
 
-            return interaction.reply({
-                content: "❌ คุณไม่มีกระเป๋าทีม",
-                ephemeral: true
-            });
+
+            return interaction.respond([]);
+
 
         }
 
-        if (!bag.items[itemId]) {
 
-            return interaction.reply({
-                content: "❌ ไม่มีไอเทมนี้",
-                ephemeral: true
-            });
+
+
+
+
+
+        const focused =
+            interaction.options
+                .getFocused(true);
+
+
+
+
+
+
+
+
+        // =========================
+        // เลือกหมวดหมู่
+        // =========================
+
+
+        if (
+            focused.name === "category"
+        ) {
+
+
+
+            const categories = [
+
+                ...new Set(
+
+                    Object.keys(bag.items)
+
+                        .map(id =>
+                            items[id]?.category
+                        )
+
+                        .filter(Boolean)
+
+                )
+
+            ];
+
+
+
+
+
+            return interaction.respond(
+
+                categories
+
+                    .filter(category =>
+
+                        category
+                            .toLowerCase()
+                            .includes(
+                                focused.value
+                                    .toLowerCase()
+                            )
+
+                    )
+
+                    .slice(0,25)
+
+                    .map(category => ({
+
+                        name:
+                        `📂 ${category}`,
+
+                        value:
+                        category
+
+                    }))
+
+
+            );
+
+
 
         }
 
-        if (bag.items[itemId] < amount) {
 
-            return interaction.reply({
-                content: "❌ จำนวนไอเทมไม่พอ",
-                ephemeral: true
-            });
+
+
+
+
+
+
+
+        // =========================
+        // เลือกไอเท็ม
+        // =========================
+
+
+        if (
+            focused.name === "item"
+        ) {
+
+
+
+            const category =
+                interaction.options
+                    .getString("category");
+
+
+
+            const choices = [];
+
+
+
+
+
+            for (
+                const id in bag.items
+            ) {
+
+
+
+                const item =
+                    items[id];
+
+
+
+                if (!item)
+                    continue;
+
+
+
+
+                if (
+                    item.category !== category
+                )
+                    continue;
+
+
+
+
+
+                choices.push({
+
+
+                    name:
+                    `${item.emoji} ${item.name} x${bag.items[id]}`,
+
+
+                    value:
+                    id
+
+
+
+                });
+
+
+
+            }
+
+
+
+
+
+
+
+            return interaction.respond(
+
+                choices
+
+                    .filter(choice =>
+
+                        choice.name
+                            .toLowerCase()
+                            .includes(
+                                focused.value
+                                    .toLowerCase()
+                            )
+
+                    )
+
+                    .slice(0,25)
+
+            );
+
+
 
         }
-                const item = items[itemId];
 
-        // จำนวนก่อนใช้
+
+    },
+
+
+
+
+
+
+
+
+
+    // =========================
+    // ใช้ไอเท็ม
+    // =========================
+
+
+    async execute(interaction) {
+
+
+
+        const itemId =
+            interaction.options
+                .getString("item");
+
+
+
+        const amount =
+            interaction.options
+                .getInteger("amount");
+
+
+
+        const reason =
+            interaction.options
+                .getString("reason")
+            ||
+            "ไม่ได้ระบุ";
+
+
+
+
+
+
+
+        const bags = JSON.parse(
+
+            fs.readFileSync(
+                bagFile,
+                "utf8"
+            )
+
+        );
+
+
+
+        const items = JSON.parse(
+
+            fs.readFileSync(
+                itemFile,
+                "utf8"
+            )
+
+        );
+
+
+
+
+
+
+
+        let bag = null;
+
+
+
+
+
+        for (
+            const id in bags
+        ) {
+
+
+
+            if (
+                interaction.member.roles.cache.has(id)
+            ) {
+
+
+                bag = bags[id];
+
+                break;
+
+
+            }
+
+
+        }
+
+
+
+
+
+
+
+        if (!bag) {
+
+
+            return interaction.reply({
+
+                content:
+                "❌ คุณไม่มีกระเป๋าทีม",
+
+                ephemeral:true
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+
+        if (
+            !bag.items[itemId]
+        ) {
+
+
+
+            return interaction.reply({
+
+                content:
+                "❌ ไม่มีไอเทมนี้ในกระเป๋า",
+
+                ephemeral:true
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+        if (
+            bag.items[itemId] < amount
+        ) {
+
+
+
+            return interaction.reply({
+
+                content:
+                "❌ จำนวนไอเทมไม่พอ",
+
+                ephemeral:true
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+        const item =
+            items[itemId];
+
+
+
+
+
+
+
         const before =
             bag.items[itemId];
 
-        // หักไอเทม
+
+
+
+
+
         bag.items[itemId] -= amount;
 
 
-        // ถ้าเหลือ 0 ลบออกจากกระเป๋า
-        if (bag.items[itemId] <= 0) {
+
+
+
+
+
+        if (
+            bag.items[itemId] <= 0
+        ) {
+
 
             delete bag.items[itemId];
+
 
         }
 
 
-        // จำนวนหลังใช้
+
+
+
+
+
         const after =
             bag.items[itemId] || 0;
+
+
+
+
+
 
 
         fs.writeFileSync(
@@ -221,40 +564,72 @@ module.exports = {
             bagFile,
 
             JSON.stringify(
+
                 bags,
+
                 null,
+
                 2
+
             )
 
         );
 
 
+
+
+
+
+
+
         const embed = new EmbedBuilder()
+
+
 
             .setColor(0xFEE75C)
 
+
+
             .setDescription(
+
 `### 🎒 ใช้ไอเทม
+
 
 ${item.emoji} **${item.name}**
 
+
 > ใช้ไป **${amount} ชิ้น**
+
 > คงเหลือ **${after}/${item.stack}**
 
+
 📝 เหตุผล
+
 ${reason}
 
+
 👤 ผู้ใช้
+
 ${interaction.user}`
+
+
             );
+
+
+
+
+
 
 
         await interaction.reply({
 
-            embeds: [embed]
+            embeds:[embed]
 
         });
 
+
+
     }
+
 
 };
