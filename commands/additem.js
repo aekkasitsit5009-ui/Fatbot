@@ -59,7 +59,6 @@ for (let i = 1; i <= 5; i++) {
                 .setAutocomplete(true)
         )
 
-
         .addIntegerOption(option =>
             option
                 .setName(`amount${i}`)
@@ -89,18 +88,15 @@ module.exports = {
 
 
         const items = JSON.parse(
-
             fs.readFileSync(
                 itemFile,
                 "utf8"
             )
-
         );
 
 
 
         const focused =
-
             interaction.options
                 .getFocused()
                 .toLowerCase();
@@ -112,7 +108,6 @@ module.exports = {
 
 
         for (const id in items) {
-
 
             const item = items[id];
 
@@ -131,18 +126,14 @@ module.exports = {
 
 
 
-
-
         await interaction.respond(
 
             choices
 
-                .filter(choice =>
-
-                    choice.name
-                        .toLowerCase()
-                        .includes(focused)
-
+                .filter(x =>
+                    x.name
+                    .toLowerCase()
+                    .includes(focused)
                 )
 
                 .slice(0,25)
@@ -157,27 +148,26 @@ module.exports = {
 
 
 
-
     async execute(interaction) {
 
 
-
         const role =
-
             interaction.options
                 .getRole("role");
 
 
 
 
-
-        if (!fs.existsSync(bagFile)) {
+        if (
+            !fs.existsSync(bagFile) ||
+            !fs.existsSync(itemFile)
+        ) {
 
 
             return interaction.reply({
 
                 content:
-                "❌ ยังไม่มีกระเป๋าทีม",
+                "❌ ไม่พบฐานข้อมูล",
 
                 ephemeral:true
 
@@ -185,8 +175,6 @@ module.exports = {
 
 
         }
-
-
 
 
 
@@ -215,7 +203,8 @@ module.exports = {
 
 
 
-        const bag = bags[role.id];
+        const bag =
+            bags[role.id];
 
 
 
@@ -241,174 +230,18 @@ module.exports = {
 
 
 
+        // เก็บข้อมูลเดิมไว้กันพัง
 
+        const backup =
+            JSON.parse(
+                JSON.stringify(
+                    bag.items
+                )
+            );
 
-        // =========================
-        // คำนวณช่องปัจจุบัน
-        // =========================
 
 
-        let currentSlot = 0;
 
-
-
-        for (const itemId in bag.items) {
-
-
-            const amount =
-                bag.items[itemId];
-
-
-            const item =
-                items[itemId];
-
-
-
-            if (!item)
-                continue;
-
-
-
-
-            const stackCount =
-                Math.ceil(
-                    amount / item.stack
-                );
-
-
-
-            currentSlot +=
-                stackCount * item.slot;
-
-
-        }
-
-
-
-
-
-
-
-
-        // =========================
-        // คำนวณช่องที่จะเพิ่ม
-        // =========================
-
-
-        let addSlot = 0;
-
-
-
-        for (let i = 1; i <= 5; i++) {
-
-
-            const itemId =
-
-                interaction.options
-                    .getString(`item${i}`);
-
-
-
-            const amount =
-
-                interaction.options
-                    .getInteger(`amount${i}`);
-
-
-
-
-
-            if (!itemId || !amount)
-                continue;
-
-
-
-            const item =
-                items[itemId];
-
-
-
-            if (!item)
-                continue;
-
-
-
-            const before =
-                bag.items[itemId] || 0;
-
-
-
-            const after =
-                before + amount;
-
-
-
-
-            const beforeStack =
-                Math.ceil(
-                    before / item.stack
-                );
-
-
-
-            const afterStack =
-                Math.ceil(
-                    after / item.stack
-                );
-
-
-
-            const extraStack =
-                afterStack - beforeStack;
-
-
-
-            addSlot +=
-                extraStack * item.slot;
-
-
-
-        }
-
-
-
-
-
-
-
-        if (
-            currentSlot + addSlot > bag.maxSlot
-        ) {
-
-
-            return interaction.reply({
-
-                content:
-`❌ ช่องเก็บของไม่พอ
-
-📦 ปัจจุบัน ${currentSlot}/${bag.maxSlot}
-
-➕ ต้องการเพิ่ม ${addSlot} ช่อง
-
-เหลือ ${bag.maxSlot - currentSlot} ช่อง`,
-
-                ephemeral:true
-
-            });
-
-
-        }
-
-
-
-
-
-
-
-
-        // =========================
-        // เพิ่มของ
-        // =========================
 
 
         const added = [];
@@ -416,21 +249,22 @@ module.exports = {
 
 
 
+
+
+        // เพิ่มของชั่วคราว
+
         for (let i = 1; i <= 5; i++) {
 
 
             const itemId =
-
                 interaction.options
                     .getString(`item${i}`);
 
 
 
             const amount =
-
                 interaction.options
                     .getInteger(`amount${i}`);
-
 
 
 
@@ -442,7 +276,6 @@ module.exports = {
 
             if (!items[itemId])
                 continue;
-
 
 
 
@@ -459,6 +292,7 @@ module.exports = {
 
 
 
+
             added.push({
 
                 item:
@@ -471,7 +305,6 @@ module.exports = {
 
 
         }
-
 
 
 
@@ -499,6 +332,89 @@ module.exports = {
 
 
 
+        // =========================
+        // คำนวณช่องใหม่ทั้งหมด
+        // =========================
+
+
+        let usedSlot = 0;
+
+
+
+        for (const id in bag.items) {
+
+
+            const item =
+                items[id];
+
+
+
+            if (!item)
+                continue;
+
+
+
+            const amount =
+                bag.items[id];
+
+
+
+            const stack =
+                Math.ceil(
+                    amount / item.stack
+                );
+
+
+
+            usedSlot +=
+                stack * item.slot;
+
+
+        }
+
+
+
+
+
+
+
+
+        // เกินช่อง ย้อนกลับ
+
+        if (
+            usedSlot > bag.maxSlot
+        ) {
+
+
+
+            bag.items = backup;
+
+
+
+            return interaction.reply({
+
+                content:
+`❌ ช่องเก็บของไม่พอ
+
+📦 ตอนนี้ต้องใช้ ${usedSlot}/${bag.maxSlot}
+
+ลดจำนวนไอเทมก่อนเพิ่ม`,
+
+                ephemeral:true
+
+            });
+
+
+        }
+
+
+
+
+
+
+
+        // ผ่านแล้วบันทึก
+
         fs.writeFileSync(
 
             bagFile,
@@ -517,14 +433,12 @@ module.exports = {
 
 
 
-
-        const embed = new EmbedBuilder()
-
+        const embed =
+            new EmbedBuilder()
 
             .setColor(
                 role.color || 0x2b2d31
             )
-
 
             .setDescription(
 
@@ -544,6 +458,7 @@ module.exports = {
             embeds:[embed]
 
         });
+
 
 
     }
