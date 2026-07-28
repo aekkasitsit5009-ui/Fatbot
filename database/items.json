@@ -1097,5 +1097,12 @@
     "category": "อาวุธ",
     "slot": 4,
     "stack": 8
+  },
+  "bullet": {
+    "name": "กระสุนปืนพก",
+    "emoji": "🟡",
+    "category": "กระสุน",
+    "slot": 1,
+    "stack": 999
   }
 }

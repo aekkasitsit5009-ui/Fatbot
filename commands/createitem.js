@@ -7,6 +7,7 @@ const {
 const fs = require("fs");
 const path = require("path");
 
+
 const itemFile = path.join(
     __dirname,
     "..",
@@ -14,7 +15,10 @@ const itemFile = path.join(
     "items.json"
 );
 
+
+
 module.exports = {
+
 
     data: new SlashCommandBuilder()
 
@@ -26,12 +30,14 @@ module.exports = {
             PermissionFlagsBits.Administrator
         )
 
+
         .addStringOption(option =>
             option
                 .setName("id")
                 .setDescription("ID เช่น bottled_water")
                 .setRequired(true)
         )
+
 
         .addStringOption(option =>
             option
@@ -40,6 +46,7 @@ module.exports = {
                 .setRequired(true)
         )
 
+
         .addStringOption(option =>
             option
                 .setName("emoji")
@@ -47,12 +54,15 @@ module.exports = {
                 .setRequired(true)
         )
 
+
         .addStringOption(option =>
             option
                 .setName("category")
-                .setDescription("หมวดหมู่")
+                .setDescription("เลือกหรือสร้างหมวดหมู่")
+                .setAutocomplete(true)
                 .setRequired(true)
         )
+
 
         .addIntegerOption(option =>
             option
@@ -61,6 +71,7 @@ module.exports = {
                 .setRequired(true)
         )
 
+
         .addIntegerOption(option =>
             option
                 .setName("stack")
@@ -68,7 +79,11 @@ module.exports = {
                 .setRequired(true)
         ),
 
+
+
+
     async execute(interaction) {
+
 
         const id =
             interaction.options
@@ -76,46 +91,74 @@ module.exports = {
                 .trim()
                 .toLowerCase();
 
+
+
         const name =
             interaction.options
                 .getString("name")
                 .trim();
+
+
 
         const emoji =
             interaction.options
                 .getString("emoji")
                 .trim();
 
+
+
         const category =
             interaction.options
                 .getString("category")
                 .trim();
 
+
+
         const slot =
             interaction.options
                 .getInteger("slot");
+
+
 
         const stack =
             interaction.options
                 .getInteger("stack");
 
+
+
+
+
         if (!fs.existsSync(itemFile)) {
+
 
             fs.writeFileSync(
                 itemFile,
                 "{}"
             );
 
+
         }
 
+
+
+
+
         const items = JSON.parse(
+
             fs.readFileSync(
                 itemFile,
                 "utf8"
             )
+
         );
 
+
+
+
+
+
         if (items[id]) {
+
 
             return interaction.reply({
 
@@ -126,9 +169,17 @@ module.exports = {
 
             });
 
+
         }
 
+
+
+
+
+
+
         items[id] = {
+
 
             name,
 
@@ -140,8 +191,15 @@ module.exports = {
 
             stack
 
+
         };
-                fs.writeFileSync(
+
+
+
+
+
+
+        fs.writeFileSync(
 
             itemFile,
 
@@ -153,36 +211,202 @@ module.exports = {
 
         );
 
+
+
+
+
+
+
+
         const embed = new EmbedBuilder()
+
 
             .setColor("Green")
 
+
             .setDescription(
 
-`### 📦 สร้างไอเทมสำเร็จ
+`## 📦 สร้างไอเทมสำเร็จ
+
 
 ${emoji} **${name}**
+
 
 **ID**
 \`${id}\`
 
+
 **หมวดหมู่**
 ${category}
+
 
 **ใช้ช่อง**
 ${slot}
 
+
 **Stack สูงสุด**
 ${stack}`
 
+
             );
+
+
+
+
 
         await interaction.reply({
 
-            embeds: [embed]
+            embeds: [
+
+                embed
+
+            ]
 
         });
 
+
+    },
+
+
+
+
+
+
+
+    async autocomplete(interaction) {
+
+
+        const focused =
+            interaction.options
+                .getFocused();
+
+
+
+
+        let categories = [];
+
+
+
+
+
+        if (fs.existsSync(itemFile)) {
+
+
+
+            const items = JSON.parse(
+
+                fs.readFileSync(
+                    itemFile,
+                    "utf8"
+                )
+
+            );
+
+
+
+
+
+            categories = [
+
+                ...new Set(
+
+                    Object.values(items)
+
+                        .map(item =>
+                            item.category
+                        )
+
+                        .filter(Boolean)
+
+                )
+
+            ];
+
+
+
+        }
+
+
+
+
+
+
+
+
+        let choices = categories
+
+            .filter(category =>
+
+                category
+                    .toLowerCase()
+                    .includes(
+                        focused.toLowerCase()
+                    )
+
+            )
+
+            .map(category => ({
+
+
+                name: `📂 ${category}`,
+
+
+                value: category
+
+
+            }));
+
+
+
+
+
+
+
+
+
+        // ถ้าพิมพ์หมวดใหม่
+        if (
+
+            focused &&
+
+            !categories.includes(focused)
+
+        ) {
+
+
+
+            choices.unshift({
+
+
+                name:
+                `➕ สร้างหมวดใหม่: ${focused}`,
+
+
+                value: focused
+
+
+
+            });
+
+
+
+        }
+
+
+
+
+
+
+
+        await interaction.respond(
+
+            choices.slice(0, 25)
+
+        );
+
+
+
     }
+
 
 };
